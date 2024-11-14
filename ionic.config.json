@@ -1,0 +1,7 @@
+{
+  "name": "feel-flow-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
