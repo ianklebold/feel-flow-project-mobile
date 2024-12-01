@@ -21,23 +21,19 @@ app-notify-button {
     pointer-events: auto;
 }
 
-ion-menu::part(backdrop) {
-  background-color: rgb(196, 120, 126, 0.5) ;
+.surveys-header-container{
+  display: flex;
+  align-items: center;
+  margin-left: 8%;
+  margin-top: 10%;
 }
 
-ion-menu::part(container) {
-  border-radius: 0 20px 20px 0;
-
-  box-shadow: 4px 0px 16px rgb(196, 120, 126, 0.18);
+.surveys-header-container h2{
+  font-family: Roboto-Bold;
 }
 
-ion-list{
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  padding-top: 0px !important; 
-  padding-bottom: 0px !important;
+.surveys-header-container label{
+  margin-left: 31%;
+  font-family: Roboto-Light;
 }
+
