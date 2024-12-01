@@ -1,0 +1,35 @@
+ion-card{
+    border-radius: 25px;
+    width: 96%;
+    min-height: 100px;
+    background-color: rgba(var(--ion-color-warning-rgb), 0.3);
+    border-style: solid;
+    border-color: var(--ion-color-warning);
+
+    display: flex;
+    align-items: center;
+}
+
+.icon-information-container {
+    width: 47px;
+    height: 47px;
+    border-radius: 15px;
+    background: rgba(var(--ion-color-light-rgb), 0.5);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+ion-icon {
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+}
+
+span{
+    font-family: Roboto;
+    text-align: left;
+}

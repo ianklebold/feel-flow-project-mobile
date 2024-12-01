@@ -14,7 +14,15 @@
       </h2>
       <label>Ver todas</label>
     </div>
-    <app-survey-card></app-survey-card>
+
+    <ng-template [ngIf]="true" [ngIfElse]="noSurveysExistsTempalte">
+      <app-survey-card></app-survey-card>
+    </ng-template>
   </div>
+
+  
+  <ng-template #noSurveysExistsTempalte>
+    <app-info-card [infoText]="this.getMessageNotSurveysExists()"></app-info-card>
+  </ng-template>
 
 </ion-content>

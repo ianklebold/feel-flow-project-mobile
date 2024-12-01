@@ -9,4 +9,10 @@ export class HomePage {
 
   constructor() {}
 
+  
+  public getMessageNotSurveysExists() : string {
+    return 'No tiene encuestas registradas.';
+  }
+  
+
 }
