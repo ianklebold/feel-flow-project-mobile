@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header-container {
+  display: flex; /* Utiliza flexbox para alinear los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+app-notify-button {
+  margin-left: 25%;
+}
+
 .ion-title-content{
   display: contents;
     width: 100%;

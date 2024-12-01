@@ -1,0 +1,24 @@
+.notify-button-container {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    border: 1px solid var(--ion-color-secondary) !important;
+    background: var(--ion-color-light);
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    outline: none; /* Elimina el contorno predeterminado del botón */
+    border: none; /* Elimina el borde predeterminado del botón */
+    margin-top: 30px;
+}
+
+ion-icon {
+    width: 25px;
+    height: 25px;
+}
+
+/* Estilo adicional para efecto hover (opcional) */
+.notify-button-container:hover {
+    background: #f0f0f0; /* Cambia el fondo al pasar el ratón */
+}

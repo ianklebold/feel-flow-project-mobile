@@ -1,3 +1,5 @@
+@import url('/src/theme/fonts.scss');
+
 .profile-container {
     display: flex; /* Utiliza flexbox para alinear los elementos */
     align-items: center; /* Centra verticalmente los elementos */
@@ -6,23 +8,31 @@
 .profile-info {
     display: flex;
     flex-direction: column; /* Alinea los textos en columna */
+    margin-top: 20px;
 }
 
 .profile-info p{
-    margin: 30px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
 }
 
 .profile-photo{
     margin-right: 20px;
-    width: 75px;
-    height: 75px;
-    border-radius: 20px 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 15px 15px;
     margin-top: 30px;
     margin-left: 40px;
   }
   
   ion-img {
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
   }
   
+.name-profile{
+    font-family: Roboto-Bold;
+}
+
+.name-team-proyect{
+    font-family: Roboto-Light;
+}
