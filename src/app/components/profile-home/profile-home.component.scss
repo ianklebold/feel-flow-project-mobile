@@ -1,4 +1,19 @@
+.profile-container {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column; /* Alinea los textos en columna */
+}
+
+.profile-info p{
+    margin: 30px 0px 0px 0px;
+}
+
 .profile-photo{
+    margin-right: 20px;
     width: 75px;
     height: 75px;
     border-radius: 20px 20px;
@@ -10,3 +25,4 @@
     border-radius: 20px;
     overflow: hidden;
   }
+  
