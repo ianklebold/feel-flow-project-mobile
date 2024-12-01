@@ -1,5 +1,86 @@
+@import url('/src/theme/fonts.scss');
+
+.survey-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.module-icon-container {
+    width: 47px;
+    height: 47px;
+    border-radius: 15px;
+    background: rgba(var(--ion-color-light-rgb), 0.3);
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.ion-icon-module {
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+}
+
+.survey-state-container{
+    display: flex;
+    align-items: center;
+    border-radius: 45px;
+    background: rgba(var(--ion-color-light-rgb), 0.3);
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.survey-state-container span{
+    margin-right: 3px;
+}
+
+.ion-icon-state-survey{
+    width: 25px;
+    height: 25px;
+}
+
 ion-card{
     border-radius: 25px;
     width: 96%;
-    height: 180px;
+    height: 200px;
+}
+
+.survey-content-container{
+    display: block;
+    margin-left: 30px;
+}
+
+.leader-profile{
+    display: flex;
+    align-items: center;
+}
+
+ion-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+h4{
+    margin-bottom: 5px;
+    font-family: Roboto-Bold;
+}
+
+.leader-profile{
+    margin-top: 10px;
+}
+
+.leader-profile span{
+    margin-left: 5px;
+    font-family: Roboto;
+}
+
+.survey-time{
+    font-family: Roboto-Light;
 }
