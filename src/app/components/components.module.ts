@@ -6,11 +6,12 @@ import { NotifyButtonComponent } from './notify-button/notify-button.component';
 import { SurveyCardComponent } from './survey-card/survey-card.component';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { RecommendationCardComponent } from './recommendation-card/recommendation-card.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 
 
 @NgModule({
-  declarations: [ProfileHomeComponent,NotifyButtonComponent,SurveyCardComponent,InfoCardComponent,RecommendationCardComponent],
+  declarations: [ProfileHomeComponent,NotifyButtonComponent,SurveyCardComponent,InfoCardComponent,RecommendationCardComponent,TabsComponent],
   imports: [
     IonicModule,
     CommonModule
@@ -20,7 +21,8 @@ import { RecommendationCardComponent } from './recommendation-card/recommendatio
     NotifyButtonComponent,
     SurveyCardComponent,
     InfoCardComponent,
-    RecommendationCardComponent
+    RecommendationCardComponent,
+    TabsComponent
   ]
 })
 export class ComponentsModule { }
