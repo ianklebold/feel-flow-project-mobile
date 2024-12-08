@@ -37,3 +37,18 @@ app-notify-button {
   font-family: Roboto-Light;
 }
 
+.recommendations-header-container{
+  display: flex;
+  align-items: center;
+  margin-left: 8%;
+  margin-top: 10%;
+}
+
+.recommendations-header-container h2{
+  font-family: Roboto-Bold;
+}
+
+.recommendations-header-container label{
+  margin-left: 25.3%;;
+  font-family: Roboto-Light;
+}

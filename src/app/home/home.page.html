@@ -21,6 +21,24 @@
   </div>
 
   
+  <div class="surveys-container">
+    <div class="recommendations-header-container">
+      <h2>
+        Recomendaciones
+      </h2>
+      <label>Ver todas</label>
+    </div>
+
+    <app-recommendation-card></app-recommendation-card>
+    <app-recommendation-card></app-recommendation-card>
+    <app-recommendation-card></app-recommendation-card>
+    <app-recommendation-card></app-recommendation-card>
+    <app-recommendation-card></app-recommendation-card>
+    <app-recommendation-card></app-recommendation-card>
+  </div>
+
+
+  
   <ng-template #noSurveysExistsTempalte>
     <app-info-card [infoText]="this.getMessageNotSurveysExists()"></app-info-card>
   </ng-template>
