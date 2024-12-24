@@ -6,7 +6,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -30,7 +30,8 @@ const routes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
       },
     ]
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
