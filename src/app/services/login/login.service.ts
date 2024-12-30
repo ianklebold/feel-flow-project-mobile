@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { AuthData } from 'src/app/models/auth/auth-data';
+import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor( private apiService: ApiService) {
+
+  }
+
+  login( data : AuthData ){
+
+
+    this.apiService.autheticate(data);
+
+    console.log(data);
+
+  }
+
 }

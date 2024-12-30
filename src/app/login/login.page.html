@@ -2,7 +2,7 @@
   <ion-img [src]="" src="../../assets/login/login.png"></ion-img>
   
   <h1 class="login-title">Iniciar sesion</h1>
-  <form>
+  <form (ngSubmit)="login( fLogin )" #fLogin="ngForm">
     <ion-row>
         <ion-col>
             
@@ -11,30 +11,41 @@
                 <div class="input-name">Usuario</div>
                 <ion-item class="item-label">
                   <!-- <ion-label></ion-label> -->
-                  <ion-input value="ianklebold" name="username" type="text" required></ion-input>
+                  <ion-input value="ianklebold" 
+                    name="username" 
+                    type="text" 
+                    [(ngModel)] = "loginUser.username"
+                    required>
+                  </ion-input>
                 </ion-item>
 
                 <div class="input-name">Contraseña</div>
                 <ion-item class="item-label">
                   <!-- <ion-label>Contraseña</ion-label> -->
-                  <ion-input value="1234" name="password" type="password" required></ion-input>
+                  <ion-input value="1234" 
+                    name="password" 
+                    type="password" 
+                    [(ngModel)] = "loginUser.password"
+                    required>
+                  </ion-input>
                 </ion-item>
 
             </ion-list>
         </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-button 
+                      type="submit"
+                      shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="tertiary">
+            Ingresar
+          </ion-button>
+      </ion-col>
+    </ion-row>
   </form>
-
-  <ion-row>
-    <ion-col>
-        <ion-button shape="round"
-                    expand="full"
-                    size="small"
-                    fill="outline"
-                    color="tertiary">
-          Ingresar
-        </ion-button>
-    </ion-col>
-  </ion-row>
 
 </ion-content>
