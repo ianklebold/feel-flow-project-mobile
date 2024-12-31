@@ -53,9 +53,9 @@ export class ApiService {
   }
 
   private async getAuthHeaders(): Promise<HttpHeaders> {
-    const token = await this.authService.getToken();
-    return token
-      ? new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    const jwtData = await this.authService.getJwtData();
+    return jwtData
+      ? new HttpHeaders({ 'Authorization': `Bearer ${jwtData.token}` })
       : new HttpHeaders();
   }
 }

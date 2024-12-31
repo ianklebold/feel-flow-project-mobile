@@ -5,6 +5,8 @@ import { LoginService } from '../services/login/login.service';
 import { ErrorMessageComponent } from '../components/error-message/error-message.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorConstants } from '../constants/error.message';
+import { AuthService } from '../services/auth/auth.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ import { ErrorConstants } from '../constants/error.message';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private authService: AuthService, private navController: NavController) { }
 
   @ViewChild(ErrorMessageComponent) errorMessageComponent!: ErrorMessageComponent;
   
@@ -30,7 +32,8 @@ export class LoginPage implements OnInit {
   login(fLogin: NgForm) {
     this.loginService.login(this.loginUser)
       .then(response => {
-        console.log(response);
+        this.authService.setJwtData(response);
+        this.navController.navigateRoot('home');
       })
       .catch(error => {
         if (error instanceof HttpErrorResponse) {
