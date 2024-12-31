@@ -8,11 +8,21 @@ import { InfoCardComponent } from './info-card/info-card.component';
 import { RecommendationCardComponent } from './recommendation-card/recommendation-card.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { ExitButtonComponent } from './exit-button/exit-button.component';
 
 
 
 @NgModule({
-  declarations: [ProfileHomeComponent,NotifyButtonComponent,SurveyCardComponent,InfoCardComponent,RecommendationCardComponent,TabsComponent, ErrorMessageComponent],
+  declarations: [
+    ProfileHomeComponent,
+    NotifyButtonComponent,
+    SurveyCardComponent,
+    InfoCardComponent,
+    RecommendationCardComponent,
+    TabsComponent, 
+    ErrorMessageComponent,
+    ExitButtonComponent
+  ],
   imports: [
     IonicModule,
     CommonModule
@@ -24,7 +34,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     InfoCardComponent,
     RecommendationCardComponent,
     TabsComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    ExitButtonComponent
   ]
 })
 export class ComponentsModule { }

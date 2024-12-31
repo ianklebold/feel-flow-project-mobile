@@ -22,11 +22,16 @@ export class AuthService{
   }
 
   async setJwtData(jwtData: TokenModel): Promise<void> {
-    console.log(jwtData);
     await this.storage.set(this.JWT_DATA_KEY, jwtData);
   }
 
   async clearJwtData(): Promise<void> {
     await this.storage.remove(this.JWT_DATA_KEY);
   }
+
+  async logout(): Promise<void> {
+    await this.clearJwtData();
+  }
+
+
 }
