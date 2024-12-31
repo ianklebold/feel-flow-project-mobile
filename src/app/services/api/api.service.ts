@@ -35,7 +35,7 @@ export class ApiService {
 
   }
 
-  autheticate(data: AuthData){
+  autheticate(data: AuthData): Promise<any>{
     return this.authenticate('login',data);
   }
 
@@ -43,7 +43,6 @@ export class ApiService {
     try {
       if (api_version === '') {
         const resp = await this.http.post(`${URL}${endpoint}`, data).toPromise();
-        console.log(resp);
         return resp;
       } else {
         return await this.http.post(`${URL}${api_version}/${endpoint}`, data).toPromise();

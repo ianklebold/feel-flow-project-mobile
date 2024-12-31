@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AuthData } from 'src/app/models/auth/auth-data';
-import { ApiService } from '../api/api.service';
 import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
