@@ -12,6 +12,9 @@ export class LoginPage implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
+  showPassword = false;
+
+
   ngOnInit() {}
 
   loginUser: AuthData = {
@@ -24,4 +27,7 @@ export class LoginPage implements OnInit {
     this.loginService.login(this.loginUser);
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 }

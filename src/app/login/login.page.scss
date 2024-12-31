@@ -11,5 +11,61 @@ ion-content{
 }
 
 .item-label{
-    --background : #D3D3D3
+    --background : #D3D3D3;
+}
+
+.item-label {
+    width: 322.67px;
+    --background: none !important;
+}
+
+ion-input{
+    width: 322.67px;
+}
+
+ion-icon{
+    margin-right: 9px;
+}
+
+.item-password{
+    margin-bottom: 60px;
+}
+
+ion-button::part(native) {
+    width: 322.67px;
+    height: 61.05px;
+    font-family: 'Roboto-Bold';
+}
+
+.button-col{
+    display: flex;
+    justify-content: center;
+    margin-left: 3%;
+}
+
+.inputs-col{
+    display: flex;
+    justify-content: center;
+}
+
+.item-label-username{
+    margin-bottom: 18px;
+}
+
+input{
+    font-family: 'Roboto-Bold' !important;
+}
+
+ion-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.title-container{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: var(--ion-color-medium);
 }
