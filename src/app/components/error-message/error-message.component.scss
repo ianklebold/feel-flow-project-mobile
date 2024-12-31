@@ -1,0 +1,41 @@
+/* error-message.component.css */
+.error-message-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 400px; /* Aumentar el ancho */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s, fadeOut 5s 1s; /* Reducir la entrada a 1s y aumentar la salida a 5s */
+}
+
+.error-message p {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}

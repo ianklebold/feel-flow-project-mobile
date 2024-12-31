@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AuthData } from 'src/app/models/auth/auth-data';
@@ -36,9 +36,7 @@ export class ApiService {
   }
 
   autheticate(data: AuthData){
-    this.authenticate('login',data).then(
-      value => console.log( value )
-    );
+    return this.authenticate('login',data);
   }
 
   async authenticate(endpoint: string, data: any, api_version: string = ''): Promise<any> {
@@ -51,11 +49,7 @@ export class ApiService {
         return await this.http.post(`${URL}${api_version}/${endpoint}`, data).toPromise();
       }
     } catch (error) {
-      console.error('Error al autenticar:', error);
-      if (error instanceof HttpErrorResponse) {
-        console.error('HTTP Error:', error.message, error.status, error.statusText, error.url);
-      }
-      throw error;
+      return Promise.reject(error);
     }
   }
 

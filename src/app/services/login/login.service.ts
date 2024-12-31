@@ -14,10 +14,7 @@ export class LoginService {
 
   login( data : AuthData ){
 
-
-    this.apiService.autheticate(data);
-
-    console.log(data);
+    return this.apiService.autheticate(data);
 
   }
 

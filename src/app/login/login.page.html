@@ -16,7 +16,7 @@
                     [placeholder]="'Correo electrónico'"
                     type="text" 
                     [(ngModel)] = "loginUser.username"
-                    [attr.name]="'username'"
+                    name="username"
                     required>
                   </ion-input>
                 </ion-item>
@@ -27,7 +27,7 @@
                     [placeholder]="'Contraseña'"
                     [type]="showPassword ? 'text' : 'password'"
                     [(ngModel)]="loginUser.password"
-                    [attr.name]="'password'"
+                    name="password"
                     required
                   ></ion-input>
                   <ion-icon
@@ -57,3 +57,5 @@
   </form>
 
 </ion-content>
+
+<app-error-message></app-error-message>
