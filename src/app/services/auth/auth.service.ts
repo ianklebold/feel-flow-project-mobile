@@ -61,5 +61,15 @@ export class AuthService{
     return decoded.exp;
   }
 
+  public async getDecodeToken(){
+    const jwtData: TokenModel = await this.storage.get(this.JWT_DATA_KEY);
+
+    if(jwtData){
+      const decoded: any = jwtDecode(jwtData.token);
+      return decoded;
+    }
+    return null;
+  }
+
 
 }

@@ -3,7 +3,7 @@
     <ion-img src="../../../assets/profile-photo/bruce-mars.png"></ion-img>
   </div>
   <div class="profile-info">
-    <p class="name-profile">Bruce Mars</p>
-    <p class="name-team-proyect">Proyecto o equipo</p>
+    <p class="name-profile">{{this.userData?.name}} {{this.userData?.surname}}</p>
+    <p class="name-team-proyect">{{this.userData?.enterpriseInfoHomeDTO?.name}}</p>
   </div>
 </div>

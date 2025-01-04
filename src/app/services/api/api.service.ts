@@ -17,9 +17,11 @@ export class ApiService {
     const headers = await this.getAuthHeaders();
 
     if(api_version === ''){
-      return this.http.get(`${URL}${endpoint}`, { headers });
+      const resp =  this.http.get(`${URL}${endpoint}`, { headers }).toPromise();
+      return resp;
     }else{
-      return this.http.get(`${URL}${api_version}/${endpoint}`, { headers });
+      const resp =  this.http.get(`${URL}${api_version}${endpoint}`, { headers }).toPromise();
+      return resp;
     }
 
   }
@@ -30,7 +32,7 @@ export class ApiService {
     if(api_version === ''){
       return this.http.post(`${URL}${endpoint}`, data, { headers });
     }else{
-      return this.http.post(`${URL}${api_version}/${endpoint}`, data, { headers });
+      return this.http.post(`${URL}${api_version}${endpoint}`, data, { headers });
     }
 
   }
