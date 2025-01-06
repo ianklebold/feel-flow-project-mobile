@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { TokenModel } from 'src/app/models/auth/token-model';
 import { environment } from 'src/environments/environment';
 import { UserData } from 'src/app/models/user/user-data';
+import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 
 
 const API_VERSION = environment.v1;
@@ -12,8 +12,13 @@ const API_VERSION = environment.v1;
 })
 export class HomeService {
 
-  constructor( private apiService: ApiService) {
+  constructor( private apiService: ApiService) {}
 
+  public getLastSurvey(): Promise<SurveyTwelveSteps>{
+    
+    return this.apiService.get(`surveys/last`,API_VERSION).then((response:any) => {
+      return response as SurveyTwelveSteps;
+    });
   }
 
   public getUserData( idUser: string ): Promise<UserData> {

@@ -16,8 +16,8 @@
       <label>Ver todas</label>
     </div>
 
-    <ng-template [ngIf]="true" [ngIfElse]="noSurveysExistsTempalte">
-      <app-survey-card></app-survey-card>
+    <ng-template [ngIf]="this.surveyAvailable" [ngIfElse]="noSurveysExistsTempalte">
+      <app-survey-card [survey]="this.lastSurveyAvailable"></app-survey-card>
     </ng-template>
   </div>
 

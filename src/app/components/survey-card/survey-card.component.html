@@ -2,13 +2,13 @@
   <div class="survey-card-header">
     <div class="module-icon-container">
       <!-- <ion-icon name="footsteps" class="ion-icon-module"></ion-icon> -->
-      <ion-icon name="happy" class="ion-icon-module"></ion-icon>
+      <ion-icon [name]="this.iconModuleName" class="ion-icon-module"></ion-icon>
     </div>
 
     <div class="survey-state-container">
-      <!--Icono para encuesta terminada -->
-      <span>Encuesta terminada</span>
-      <ion-icon name="checkmark-circle" class="ion-icon-state-survey"></ion-icon>
+      <!--Icono para encuesta terminada checkmark-circle -->
+      <span>{{this.stateSurvey}}</span>
+      <ion-icon [name]="this.iconSurveyName" class="ion-icon-state-survey"></ion-icon>
 
       <!--Icono para encuesta cerrada -->
       <!-- <span>Encuesta cerrada</span> -->
@@ -21,13 +21,13 @@
   </div>
   
   <div class="survey-content-container">
-    <h4>Nombre de modulo</h4>
+    <h4>{{this.moduleName}}</h4>
 
     <span class="survey-time">Hoy, 08:15am</span>
 
     <div class="leader-profile">
       <ion-img src="../../../assets/profile-photo/lana-profile.png"></ion-img>
-      <span>Lana Anal</span>
+      <span>{{this.teamLeaderName}}</span>
     </div>
   </div>
 
