@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
   }
   
   public getMessageNotSurveysExists() : string {
-    return 'No tiene encuestas registradas.';
+    return 'No tiene encuestas activas.';
   }
 
   private setLastSurvey(){
