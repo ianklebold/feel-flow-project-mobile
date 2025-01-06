@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home/home.page';
 import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
@@ -15,26 +14,31 @@ const routes: Routes = [
     children:[
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+        loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
       },
       {
         path: 'calendar',
-        loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+        loadChildren: () => import('./pages/calendar/calendar.module').then( m => m.CalendarPageModule)
       },
       {
         path: 'teams',
-        loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
+        loadChildren: () => import('./pages/surveys/teams/teams.module').then( m => m.TeamsPageModule)
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
       },
     ]
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'surveys',
+    loadChildren: () => import('./pages/surveys/surveys.module').then( m => m.SurveysPageModule)
+  },
+
 
 ];
 

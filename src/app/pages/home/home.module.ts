@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ProfileHomeComponent } from '../components/profile-home/profile-home.component';
-import { ComponentsModule } from '../components/components.module';
+import { ProfileHomeComponent } from '../../components/profile-home/profile-home.component';
+import { ComponentsModule } from '../../components/components.module';
 
 
 @NgModule({

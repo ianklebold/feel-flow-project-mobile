@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../services/home/home.service';
-import { SurveyTwelveSteps } from '../models/survey/twelve-steps/survey-twelve-steps-model';
+import { HomeService } from '../../services/home/home.service';
+import { SurveyTwelveSteps } from '../../models/survey/twelve-steps/survey-twelve-steps-model';
 
 @Component({
   selector: 'app-home',

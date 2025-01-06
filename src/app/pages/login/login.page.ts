@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthData } from '../models/auth/auth-data';
-import { LoginService } from '../services/login/login.service';
-import { ErrorMessageComponent } from '../components/error-message/error-message.component';
+import { AuthData } from '../../models/auth/auth-data';
+import { LoginService } from '../../services/login/login.service';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorConstants } from '../constants/error.message';
-import { AuthService } from '../services/auth/auth.service';
+import { ErrorConstants } from '../../constants/error.message';
+import { AuthService } from '../../services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
