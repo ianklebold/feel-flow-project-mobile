@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'teams',
-        loadChildren: () => import('./pages/surveys/teams/teams.module').then( m => m.TeamsPageModule)
+        loadChildren: () => import('./pages/teams/teams.module').then( m => m.TeamsPageModule)
       },
       {
         path: 'dashboard',
