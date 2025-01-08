@@ -10,4 +10,10 @@
       <ion-title size="large">surveys</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngFor="let survey of this.surveysList">
+    <app-survey-card [survey]="survey"></app-survey-card>
+  </div>
+
+
 </ion-content>

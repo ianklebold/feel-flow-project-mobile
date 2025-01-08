@@ -1,6 +1,6 @@
 import { Injectable, ViewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthData } from 'src/app/models/auth/auth-data';
 import { environment } from 'src/environments/environment';
 
@@ -13,17 +13,23 @@ export class ApiService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  async get(endpoint: string, api_version:string = ''): Promise<any> {
+  async get(endpoint: string, api_version: string = '', param: Array<any> = []): Promise<any> {
     const headers = await this.getAuthHeaders();
-
-    if(api_version === ''){
-      const resp =  this.http.get(`${URL}${endpoint}`, { headers }).toPromise();
-      return resp;
-    }else{
-      const resp =  this.http.get(`${URL}${api_version}${endpoint}`, { headers }).toPromise();
-      return resp;
+  
+    let params = new HttpParams();
+  
+    if (param && param.length > 0) {
+      param.forEach(p => {
+        params = params.append(p.key, p.value);
+      });
     }
-
+  
+    // Construir la URL base
+    const url = api_version === '' ? `${URL}${endpoint}` : `${URL}${api_version}${endpoint}`;
+  
+    // Realizar la solicitud GET
+    const resp = await this.http.get(url, { headers, params }).toPromise();
+    return resp;
   }
 
   async post(endpoint: string, data: any, api_version:string = ''): Promise<any> {

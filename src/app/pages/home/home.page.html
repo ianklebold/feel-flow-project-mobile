@@ -13,7 +13,10 @@
       <h2>
         Ultima encuesta
       </h2>
-      <label>Ver todas</label>
+      <button (click)="goToSurveys()" class="view-all-surveys-button">
+        <label>Ver todas</label>
+        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+      </button>
     </div>
 
     <ng-template [ngIf]="this.surveyAvailable" [ngIfElse]="noSurveysExistsTempalte">

@@ -36,11 +36,6 @@ app-exit-button {
   font-family: Roboto-Bold;
 }
 
-.surveys-header-container label{
-  margin-left: 31%;
-  font-family: Roboto-Light;
-}
-
 .recommendations-header-container{
   display: flex;
   align-items: center;
@@ -55,4 +50,23 @@ app-exit-button {
 .recommendations-header-container label{
   margin-left: 25.3%;;
   font-family: Roboto-Light;
+}
+
+.view-all-surveys-button {
+  margin-left: 31%;
+  font-family: Roboto-Bold;
+  background: none;
+  border: none;
+  color: inherit; 
+  cursor: pointer;
+  padding: 0; 
+  font: inherit; 
+
+
+  display: flex;
+  align-items: center;
+}
+
+.view-all-surveys-button label{
+  margin-right: 3px;
 }

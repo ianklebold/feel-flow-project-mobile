@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SurveysPageRoutingModule } from './surveys-routing.module';
 
 import { SurveysPage } from './surveys.page';
+import { ComponentsModule } from "../../components/components.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SurveysPageRoutingModule
-  ],
+    SurveysPageRoutingModule,
+    ComponentsModule
+],
   declarations: [SurveysPage]
 })
 export class SurveysPageModule {}

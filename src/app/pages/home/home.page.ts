@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home/home.service';
 import { SurveyTwelveSteps } from '../../models/survey/twelve-steps/survey-twelve-steps-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
   surveys: Array<SurveyTwelveSteps> | undefined;
   surveyAvailable: boolean = false;
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService, private router: Router) {}
 
   ngOnInit() {
     this.setLastSurvey();
@@ -34,6 +35,10 @@ export class HomePage implements OnInit {
         this.lastSurveyAvailable = undefined;
       }
     });
+  }
+
+  goToSurveys() {
+    this.router.navigate(['/surveys']);
   }
   
 

@@ -84,3 +84,49 @@ h4{
 .survey-time{
     font-family: Roboto-Light;
 }
+
+.footer-card-survey-card{
+    display: flex;
+    align-items: center;
+}
+
+.footer-card-survey-card button {
+    margin-left: 35%;
+    margin-right: 5%;
+    height: 40px;
+    width: 400px;
+    padding: 10px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    color: var(--ion-color-primary-contrast); /* Cambia el color del texto si es necesario */
+    border-radius: 28px;
+    
+    // Gradiente animado
+    background: linear-gradient(270deg, rgba(255, 105, 180, 1), rgba(255, 200, 200, 1), rgba(100, 200, 255, 1));
+    background-size: 400% 400%; // Tamaño del fondo para animación
+    animation: gradientAnimation 5s ease infinite; // Llama a la animación
+  
+    // Define la animación
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+}
+
+.footer-card-survey-card label {
+    font-family: Roboto-Bold;
+    margin-right: 5px;
+}
+
+.play-survey-content{
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}

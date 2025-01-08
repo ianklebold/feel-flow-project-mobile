@@ -1,34 +1,36 @@
 <ion-card color="primary">
   <div class="survey-card-header">
     <div class="module-icon-container">
-      <!-- <ion-icon name="footsteps" class="ion-icon-module"></ion-icon> -->
       <ion-icon [name]="this.iconModuleName" class="ion-icon-module"></ion-icon>
     </div>
 
     <div class="survey-state-container">
-      <!--Icono para encuesta terminada checkmark-circle -->
       <span>{{this.stateSurvey}}</span>
       <ion-icon [name]="this.iconSurveyName" class="ion-icon-state-survey"></ion-icon>
-
-      <!--Icono para encuesta cerrada -->
-      <!-- <span>Encuesta cerrada</span> -->
-      <!--<ion-icon name="checkmark-done-circle class="ion-icon-state-survey""></ion-icon>-->
-
-      <!--Icono para encuesta activada -->
-      <!-- <span>Encuesta activada</span>
-      <ion-icon name="alert-circle" class="ion-icon-state-survey"></ion-icon> -->
     </div>
   </div>
   
   <div class="survey-content-container">
     <h4>{{this.moduleName}}</h4>
 
-    <span class="survey-time">Hoy, 08:15am</span>
+    <span class="survey-time">{{this.creationDateSurvey}}</span>
 
-    <div class="leader-profile">
-      <ion-img src="../../../assets/profile-photo/lana-profile.png"></ion-img>
-      <span>{{this.teamLeaderName}}</span>
+    <div class="footer-card-survey-card">
+
+      <div class="leader-profile">
+        <ion-img src="../../../assets/profile-photo/lana-profile.png"></ion-img>
+        <span>{{this.teamLeaderName}}</span>
+      </div>
+
+      <button (click)="playSurveys()" *ngIf="this.survey?.surveyState === 'ACTIVE' ">
+        <div class="play-survey-content">
+          <label>Realizar encuesta</label>
+          <ion-icon name="play-outline"></ion-icon>
+        </div>
+      </button>
+
     </div>
+
   </div>
 
 </ion-card>
