@@ -1,0 +1,109 @@
+ion-content{
+    --background: var(--ion-color-primary-shade) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+ion-content::before,
+ion-content::after {
+    content: '';
+    position: absolute;
+    width: 400px; /* Ajusta el tamaño según sea necesario */
+    height: 250px; /* Ajusta el tamaño según sea necesario */
+    background-image: linear-gradient(155deg, rgba(115,140,149, 1), rgba(223,136,143, 1), rgba(253,155,90, 1));    
+    
+    filter: blur(20px); /* Aplica el desenfoque */
+    z-index: 1; /* Asegúrate de que esté por debajo del contenido */
+}
+
+ion-content::before {
+    top: -100px; /* Ajusta la posición superior */
+    right: -100px; /* Ajusta la posición derecha */
+}
+
+ion-content::after {
+    bottom: -100px; /* Ajusta la posición inferior */
+    left: -100px; /* Ajusta la posición izquierda */
+}
+
+
+.introduction-container {
+    display: flex;               
+    flex-direction: column;    
+    justify-content: center;     
+    align-items: center;        
+    text-align: center;          
+    height: 70vh;             
+    padding: 20px;              
+    box-sizing: border-box;      
+}
+
+.introduction-container h1{
+    font-family: Roboto-Bold;
+}
+
+.introduction-container p{
+    font-family: Roboto;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.button-start-survey{
+    margin-top: 10%;
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    font-size: 20px;
+    background-color: var(--ion-color-secondary-shade);
+    background-image: linear-gradient(270deg, rgba(255, 105, 180, 1), rgba(255, 200, 200, 1), rgba(100, 200, 255, 1));
+    background-size: 400% 400%; 
+    animation: gradientAnimation 5s ease infinite;
+    color: black;
+    font-family: Roboto-Bold;
+    box-shadow: 0 0 35px rgba(255, 105, 180, 1), 0 0 35px rgba(255, 200, 200, 1), 0 0 35px rgba(100, 200, 255, 1);
+    transition: box-shadow 0.3s ease;
+}
+
+.button-start-survey:hover {
+    box-shadow: 0 0 50px rgba(255, 105, 180, 1), 0 0 50px rgba(255, 200, 200, 1), 0 0 50px rgba(100, 200, 255, 1); 
+}
+
+span, ion-icon {
+    transition: opacity 0.5s ease; 
+    opacity: 1;
+}
+
+span.ng-leave, ion-icon.ng-leave {
+    opacity: 0; 
+}
+
+span.ng-enter, ion-icon.ng-enter {
+    opacity: 0; 
+}
+
+span.ng-enter-active, ion-icon.ng-enter-active {
+    opacity: 1; 
+}
+
+.fade-text{
+    font-size: 20px;
+    font-family: Roboto-Bold;
+}
+
+ion-icon {
+    font-size: 30px;
+}
+
+.fade-text, ion-icon {
+    transition: opacity 0.5s ease;
+}

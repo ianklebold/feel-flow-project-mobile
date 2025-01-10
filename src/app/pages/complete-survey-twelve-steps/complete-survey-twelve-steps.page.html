@@ -1,13 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>complete-survey-twelve-steps</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">complete-survey-twelve-steps</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="introduction-container">
+    <h1 class="twelve-steps-title">12 pasos hacia la felicidad</h1>
+    <p>
+      El objetivo de la práctica es llevarnos a la 
+      reflexión sobre 12 aspectos de nuestra vida 
+      que nos pueden generar bienestar y reflexionar 
+      qué tan activo está en nuestras vidas, 
+      ser sinceros y entender de forma personal 
+      como influye cada uno de estos pasos 
+      en el logro de nuestro bienestar.
+    </p>
+    <p>
+      Su bienestar es nuestra responsabilidad.
+      Tomate un respiro, ten conciencia y paciencia para responderlas.
+      Buena suerte.
+    </p>
+    <button class="button-start-survey">
+      <span *ngIf="!showIcon" [@fadeInOut]="'in'" class="fade-text">INICIAR</span>
+      <ion-icon *ngIf="showIcon" name="footsteps" class="ion-icon-module" [@fadeInOut]="'in'"></ion-icon>
+
+    </button>
+  </div>
+
 </ion-content>
