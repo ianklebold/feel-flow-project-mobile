@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { environment } from 'src/environments/environment';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
+import { BehaviorSubject } from 'rxjs';
 
 
 const API_VERSION = environment.v1;
@@ -12,6 +13,10 @@ const API_VERSION = environment.v1;
 export class SurveysService {
 
   constructor( private apiService: ApiService) {}
+
+  private surveyActiveDataBehavior = new BehaviorSubject<SurveyTwelveSteps>(this.getInitialValueForTwelveStepsSurvey());
+
+  surveyActiveDataBehaviorObservable = this.surveyActiveDataBehavior.asObservable();
 
   public getAllSurveys(surveyState:string,creationDate:string,moduleName:string): Promise<Array<SurveyTwelveSteps>>{
     
@@ -38,6 +43,45 @@ export class SurveysService {
 
     });
 
+  }
+
+  public updateTwelveStepsDataBehavior(data: SurveyTwelveSteps){
+    this.surveyActiveDataBehavior.next(data);
+  }
+
+
+  private getInitialValueForTwelveStepsSurvey():SurveyTwelveSteps{
+    return {
+      idSurvey: 0, // Valor inicial
+      surveyState: '',
+      regularUser: {
+          uuid: '',
+          name: '',
+          surname: '',
+          username: '',
+          password: '',
+          teamDTO: null
+      },
+      activityList: [],
+      module: {
+          name: '',
+          creationDate: new Date(),
+          moduleState: '',
+          team: {
+              uuid: '',
+              nameTeam: '',
+              descriptionTeam: '',
+              teamLeaderDTO: {
+                  uuid: '',
+                  name: '',
+                  surname: '',
+                  username: '',
+                  password: '',
+                  teamDTO: null
+              }
+          }
+      }
+    };
   }
 
 }

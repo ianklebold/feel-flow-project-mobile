@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
+import { SurveysService } from 'src/app/services/surveys/surveys.service';
 
 @Component({
   selector: 'app-survey-card',
@@ -21,7 +22,7 @@ export class SurveyCardComponent  implements OnInit {
 
   creationDateSurvey: Date| undefined;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private surveyService: SurveysService) { }
 
   ngOnInit() {
     this.setSurveyData();
@@ -55,6 +56,7 @@ export class SurveyCardComponent  implements OnInit {
   }
 
   public playSurveys(){
+    this.surveyService.updateTwelveStepsDataBehavior(this.survey!);
     this.router.navigate(['/complete-survey-twelve-steps']);
   }
 
