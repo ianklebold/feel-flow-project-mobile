@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 import { SurveysService } from 'src/app/services/surveys/surveys.service';
@@ -28,7 +29,7 @@ export class CompleteSurveyTwelveStepsPage implements OnInit {
 
   private surveyTwelveStepsActive: SurveyTwelveSteps | undefined;
 
-  constructor(private surveyService: SurveysService) { }
+  constructor(private router: Router, private surveyService: SurveysService) { }
 
   ngOnInit() {
     this.suscription = this.surveyService.surveyActiveDataBehaviorObservable.subscribe(
@@ -42,7 +43,11 @@ export class CompleteSurveyTwelveStepsPage implements OnInit {
   startToggle() {
     setInterval(() => {
       this.showIcon = !this.showIcon;
-    }, 2000); // Cambia cada 2 segundos
+    }, 2000);
+  }
+
+  toggleToHome(){
+    this.router.navigate(['/home']);
   }
 
 }

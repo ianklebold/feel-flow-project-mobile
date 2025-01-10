@@ -107,3 +107,19 @@ ion-icon {
 .fade-text, ion-icon {
     transition: opacity 0.5s ease;
 }
+
+.buton-back-container{
+    display: flex;               
+    justify-content: center; 
+}
+
+.button-back-to-home{
+    background: none;
+    width: 100px;
+}
+
+.span-back-to-home{
+    text-decoration: underline;
+    font-size: 15px;
+}
+

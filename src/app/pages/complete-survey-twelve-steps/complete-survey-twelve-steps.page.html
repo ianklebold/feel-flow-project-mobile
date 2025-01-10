@@ -18,8 +18,14 @@
     <button class="button-start-survey">
       <span *ngIf="!showIcon" [@fadeInOut]="'in'" class="fade-text">INICIAR</span>
       <ion-icon *ngIf="showIcon" name="footsteps" class="ion-icon-module" [@fadeInOut]="'in'"></ion-icon>
-
     </button>
   </div>
+
+  <div class="buton-back-container" (click)="toggleToHome()">
+    <button class="button-back-to-home">
+      <span class="span-back-to-home">Volver al inicio</span>
+    </button>
+  </div>
+
 
 </ion-content>
