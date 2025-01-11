@@ -15,9 +15,9 @@
       Tomate un respiro, ten conciencia y paciencia para responderlas.
       Buena suerte.
     </p>
-    <button class="button-start-survey">
-      <span *ngIf="!showIcon" [@fadeInOut]="'in'" class="fade-text">INICIAR</span>
-      <ion-icon *ngIf="showIcon" name="footsteps" class="ion-icon-module" [@fadeInOut]="'in'"></ion-icon>
+    <button class="button-start-survey" (click)="toggleToQuestions()">
+      <span *ngIf="!showIcon" class="fade-text">INICIAR</span>
+      <ion-icon *ngIf="showIcon" name="footsteps" class="ion-icon-module"></ion-icon>
     </button>
   </div>
 

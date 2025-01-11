@@ -8,18 +8,7 @@ import { SurveysService } from 'src/app/services/surveys/surveys.service';
 @Component({
   selector: 'app-complete-survey-twelve-steps',
   templateUrl: './complete-survey-twelve-steps.page.html',
-  styleUrls: ['./complete-survey-twelve-steps.page.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.5s ease-in', style({ opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('0.5s ease-out', style({ opacity: 0 }))
-      ])
-    ])
-  ]
+  styleUrls: ['./complete-survey-twelve-steps.page.scss']
 })
 export class CompleteSurveyTwelveStepsPage implements OnInit {
 
@@ -48,6 +37,10 @@ export class CompleteSurveyTwelveStepsPage implements OnInit {
 
   toggleToHome(){
     this.router.navigate(['/home']);
+  }
+
+  toggleToQuestions(){
+    this.router.navigate(['/questions-survey-twelve-steps']);
   }
 
 }

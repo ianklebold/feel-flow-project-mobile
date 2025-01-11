@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <button class="previous-question">
+    <ion-icon name="chevron-back-outline">
+    </ion-icon>
+    <span>Anterior</span>
+  </button>
+  <span class="number-of-questions">1/12</span>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="twelve-steps-icon">
+    <ion-icon name="footsteps" class="ion-icon-module"></ion-icon>
+  </div>
+
+  <div class="survey-container">
+    <app-question-container></app-question-container>
+
+    <app-option-container></app-option-container>
+  
+    <button class="next-question-button">
+      <label>Siguiente</label>
+    </button>
+  
+    <button class="continue-later-button">
+      <label>Seguir mas tarde</label>
+    </button>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,15 @@
+.question-container{
+    width: 383px;
+    height: 229px;
+    border-radius: 20px;
+    --background: var(--ion-color-primary-shade) !important;
+
+    font-family: Roboto;
+    color: var(--ion-color-primary-contrast);
+
+    font-size: 18px;
+}
+
+.card-content-md {
+    padding-top: 50px;
+}

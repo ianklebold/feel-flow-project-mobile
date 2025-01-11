@@ -9,6 +9,9 @@ import { RecommendationCardComponent } from './recommendation-card/recommendatio
 import { TabsComponent } from './tabs/tabs.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ExitButtonComponent } from './exit-button/exit-button.component';
+import { QuestionContainerComponent } from './question-container/question-container.component';
+import { OptionContainerComponent } from './option-container/option-container.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,11 +24,14 @@ import { ExitButtonComponent } from './exit-button/exit-button.component';
     RecommendationCardComponent,
     TabsComponent, 
     ErrorMessageComponent,
-    ExitButtonComponent
+    ExitButtonComponent,
+    QuestionContainerComponent,
+    OptionContainerComponent
   ],
   imports: [
     IonicModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ProfileHomeComponent,
@@ -35,7 +41,9 @@ import { ExitButtonComponent } from './exit-button/exit-button.component';
     RecommendationCardComponent,
     TabsComponent,
     ErrorMessageComponent,
-    ExitButtonComponent
+    ExitButtonComponent,
+    QuestionContainerComponent,
+    OptionContainerComponent
   ]
 })
 export class ComponentsModule { }

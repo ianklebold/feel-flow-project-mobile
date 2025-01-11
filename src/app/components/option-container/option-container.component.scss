@@ -1,0 +1,31 @@
+ion-radio-group{
+    background-color: var(--ion-color-primary-tint) !important;
+
+}
+
+.option-container{
+    width: 383px;
+    height: 49px;
+    border-radius: 20px;
+
+    --background: var(--ion-color-dark-contrast) !important;
+    font-family: Roboto;
+    color: var(--ion-color-primary-contrast);
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+ion-radio {
+    --border-radius: 20px;
+    --inner-border-radius: 4px;
+  
+    --color: var(--ion-color-primary-contrast);
+    --color-checked: var(--ion-color-primary-tint);
+}
+
+ion-radio::part(container) {
+    width: 24px;
+    height: 24px;
+}
