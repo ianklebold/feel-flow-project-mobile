@@ -4,21 +4,21 @@
     </ion-icon>
     <span>Anterior</span>
   </button>
-  <span class="number-of-questions">1/12</span>
+  <span class="number-of-questions">{{this.numberOfQuestion + 1}}/12</span>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <div class="twelve-steps-icon">
+  <!-- <div class="twelve-steps-icon">
     <ion-icon name="footsteps" class="ion-icon-module"></ion-icon>
-  </div>
+  </div> -->
 
   <div class="survey-container">
-    <app-question-container></app-question-container>
+    <app-question-container [question]="this.currentQuestion"></app-question-container>
 
-    <app-option-container></app-option-container>
+    <app-option-container (optionSelected)="handleOptionSelected($event)" [answers]="this.currentAnswers"></app-option-container>
   
-    <button class="next-question-button">
+    <button class="next-question-button" (click)="sendResponse()">
       <label>Siguiente</label>
     </button>
   

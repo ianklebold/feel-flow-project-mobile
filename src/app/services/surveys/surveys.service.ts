@@ -45,6 +45,22 @@ export class SurveysService {
 
   }
 
+  public getQuestionsOfActiveSurvey(nameModule :string): Promise<Array<string>>{
+
+    return this.apiService.get(`questions_and_answers/questions/${nameModule}`, API_VERSION).then((response:Array<any>) => {
+      return response;
+    });
+
+  }
+
+  public getAnswersOfActiveSurvey(nameModule :string): Promise<Array<Array<string>>>{
+
+    return this.apiService.get(`questions_and_answers/answers/${nameModule}`, API_VERSION).then((response:Array<Array<string>>) => {
+      return response;
+    });
+
+  }
+
   public updateTwelveStepsDataBehavior(data: SurveyTwelveSteps){
     this.surveyActiveDataBehavior.next(data);
   }

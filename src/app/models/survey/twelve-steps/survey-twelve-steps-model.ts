@@ -9,7 +9,7 @@ export interface SurveyTwelveSteps {
 
 export interface ActivityList {
     question: string;
-    answer:   null;
+    answer:   string;
 }
 
 export interface Module {

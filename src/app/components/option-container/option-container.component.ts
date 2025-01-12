@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-option-container',
@@ -7,11 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionContainerComponent  implements OnInit {
 
+  @Input()
+  answers: Array<string> | undefined;
+  @Output() 
+  optionSelected = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {}
 
   selectedOption: string | undefined;
+
+  onOptionChange() {
+    this.optionSelected.emit(this.selectedOption);
+  }
 
   guardarSeleccion() {
     if (this.selectedOption) {
