@@ -18,7 +18,11 @@ export class HomePage implements OnInit {
   constructor(private homeService: HomeService, private router: Router) {}
 
   ngOnInit() {
-    this.setLastSurvey();
+    this.setLastSurvey(); // Llama a tu método para cargar los datos
+  }
+
+  ionViewWillEnter() {
+    this.setLastSurvey(); // Llama a tu método para cargar los datos
   }
   
   public getMessageNotSurveysExists() : string {

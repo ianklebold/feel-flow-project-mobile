@@ -36,9 +36,11 @@ export class ApiService {
     const headers = await this.getAuthHeaders();
 
     if(api_version === ''){
-      return this.http.post(`${URL}${endpoint}`, data, { headers });
+      const resp = this.http.post(`${URL}${endpoint}`, data, { headers }).toPromise();
+      return resp;
     }else{
-      return this.http.post(`${URL}${api_version}${endpoint}`, data, { headers });
+      const resp = this.http.post(`${URL}${api_version}${endpoint}`, data, { headers }).toPromise();
+      return resp;
     }
 
   }

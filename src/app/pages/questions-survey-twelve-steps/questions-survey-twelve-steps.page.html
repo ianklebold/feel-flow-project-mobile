@@ -18,14 +18,19 @@
 
     <app-option-container (optionSelected)="handleOptionSelected($event)" [answers]="this.currentAnswers"></app-option-container>
   
-    <button class="next-question-button" (click)="sendResponse()">
+    <button *ngIf="this.numberOfQuestion <= 10" class="next-question-button" (click)="sendResponse()">
       <label>Siguiente</label>
     </button>
+    <button *ngIf="this.numberOfQuestion === 11" class="next-question-button" (click)="completeSurvey()">
+      <label>Terminar</label>
+    </button>
   
-    <button class="continue-later-button">
+    <button class="continue-later-button" (click)="stopSurvey()">
       <label>Seguir mas tarde</label>
     </button>
   </div>
 
 
 </ion-content>
+
+<app-error-message></app-error-message>

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ErrorMessageComponent } from 'src/app/components/error-message/error-message.component';
 import { ModulesName } from 'src/app/constants/modules.name';
+import { ResponseCompleteSurvey } from 'src/app/models/survey/twelve-steps/response-complete-survey.model';
 import { Activity, SurveyCompleteTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-complete-model';
 import { ActivityList, SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 import { SurveysService } from 'src/app/services/surveys/surveys.service';
@@ -12,7 +15,7 @@ import { SurveysService } from 'src/app/services/surveys/surveys.service';
 })
 export class QuestionsSurveyTwelveStepsPage implements OnInit {
 
-  constructor(private surveyService: SurveysService) { }
+  constructor(private router: Router, private surveyService: SurveysService) { }
 
   questions!: Array<string>;
   answers!: Array<Array<string>>;
@@ -21,15 +24,18 @@ export class QuestionsSurveyTwelveStepsPage implements OnInit {
   currentAnswers: Array<string> | undefined;
 
   selectedResponse: string | undefined;
+  previousResponse: string | undefined;
 
   numberOfQuestion!: number;
 
   private suscription: Subscription | undefined;
 
+  @ViewChild(ErrorMessageComponent) errorMessageComponent!: ErrorMessageComponent;
+
   activeModule!: SurveyTwelveSteps;
   surveyToComplete: SurveyCompleteTwelveSteps = {
     "activities": [],
-    "surveyState": "Active"
+    "surveyState": "ACTIVE"
   };
 
   ngOnInit() {
@@ -96,6 +102,38 @@ export class QuestionsSurveyTwelveStepsPage implements OnInit {
 
   public findNumberOfQuestionToComplete(arr: Array<ActivityList>): number {
     return arr.findIndex(item => item.answer === undefined || item.answer === null);
+  }
+
+  public completeSurvey(){
+    this.saveQuestionAndAnswer();
+    this.surveyToComplete.surveyState = 'FINISHED';
+    this.surveyService.completeSurvey(this.surveyToComplete).then(
+      (value: ResponseCompleteSurvey) => {
+        if(value.statusCode === "200"){
+          console.log('Encuesta completada con exito');
+          this.router.navigate(['/home']);
+        }else{
+          this.errorMessageComponent.errorMessage = value.statusMsg;
+          this.errorMessageComponent.showError();
+        }
+      }
+    );
+  }
+
+  public stopSurvey(){
+    this.saveQuestionAndAnswer();
+    this.surveyToComplete.surveyState = 'ACTIVE';
+    this.surveyService.completeSurvey(this.surveyToComplete).then(
+      (value: ResponseCompleteSurvey) => {
+        if(value.statusCode === "200"){
+          console.log('Encuesta cerrada con exito');
+          this.router.navigate(['/home']);
+        }else{
+          this.errorMessageComponent.errorMessage = value.statusMsg;
+          this.errorMessageComponent.showError();
+        }
+      }
+    );
   }
 
 }

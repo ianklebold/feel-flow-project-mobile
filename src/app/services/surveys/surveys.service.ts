@@ -3,6 +3,8 @@ import { ApiService } from '../api/api.service';
 import { environment } from 'src/environments/environment';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 import { BehaviorSubject } from 'rxjs';
+import { SurveyCompleteTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-complete-model';
+import { ResponseCompleteSurvey } from 'src/app/models/survey/twelve-steps/response-complete-survey.model';
 
 
 const API_VERSION = environment.v1;
@@ -56,6 +58,14 @@ export class SurveysService {
   public getAnswersOfActiveSurvey(nameModule :string): Promise<Array<Array<string>>>{
 
     return this.apiService.get(`questions_and_answers/answers/${nameModule}`, API_VERSION).then((response:Array<Array<string>>) => {
+      return response;
+    });
+
+  }
+
+  public completeSurvey(surveyCompleted :SurveyCompleteTwelveSteps): Promise<ResponseCompleteSurvey>{
+
+    return this.apiService.post(`surveys/twelve_steps_module`,surveyCompleted, API_VERSION).then((response:ResponseCompleteSurvey) => {
       return response;
     });
 
