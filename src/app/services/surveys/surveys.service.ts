@@ -89,6 +89,8 @@ export class SurveysService {
           teamDTO: null
       },
       activityList: [],
+      isAfterTheDateOfPublic:false,
+      isBeforeTheDateOfClose:false,
       module: {
           name: '',
           creationDate: new Date(),

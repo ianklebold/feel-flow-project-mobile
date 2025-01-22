@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
   private setLastSurvey(){
     this.homeService.getLastSurvey().then((response: SurveyTwelveSteps) => {
       if(response){
-        this.surveyAvailable = true;
+        this.surveyAvailable = this.isSurveyActiveByDate(response.surveyState, response.isAfterTheDateOfPublic, response.isBeforeTheDateOfClose);
         this.lastSurveyAvailable = response;
       }else{
         this.surveyAvailable = false;
@@ -43,6 +43,15 @@ export class HomePage implements OnInit {
 
   goToSurveys() {
     this.router.navigate(['/surveys']);
+  }
+
+  private isSurveyActiveByDate(state:string, isAfterTheDateOfPublic: boolean, isBeforeTheDateOfClose:boolean): boolean{
+
+    if(state === 'ACTIVE'){
+      return isAfterTheDateOfPublic && isBeforeTheDateOfClose;
+    }
+
+    return true;
   }
   
 

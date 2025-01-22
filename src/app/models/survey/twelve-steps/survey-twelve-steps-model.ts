@@ -3,6 +3,8 @@ export interface SurveyTwelveSteps {
     surveyState:  string;
     regularUser:  RegularUser;
     activityList: ActivityList[];
+    isAfterTheDateOfPublic: boolean
+    isBeforeTheDateOfClose: boolean
     module:       Module;
 
 }
