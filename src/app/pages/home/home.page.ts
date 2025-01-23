@@ -51,7 +51,6 @@ export class HomePage implements OnInit {
         const { mood, feedback } = result.data;
         console.log('Estado de ánimo:', mood);
         console.log('Comentario:', feedback);
-        // Aquí puedes hacer algo con los datos, como enviarlos a un servicio
       }
     });
   
