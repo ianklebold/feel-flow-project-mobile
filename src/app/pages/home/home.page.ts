@@ -29,26 +29,35 @@ export class HomePage implements OnInit {
     this.getNikoNikoSurvey();
   }
 
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
     this.setLastSurvey(); 
-    this.getNikoNikoSurvey();
-    this.presentPopover();
+    const nikoNikoSurveyResponse = await this.getNikoNikoSurvey();
+
+    if (nikoNikoSurveyResponse) {
+      this.presentPopover(nikoNikoSurveyResponse);
+    }
   }
   
   public getMessageNotSurveysExists() : string {
     return 'No tiene encuestas activas.';
   }
 
-  async presentPopover() {
+  async presentPopover(response: NikoNikoSurvey) {
     const popover = await this.popoverController.create({
       component: NikoNikoSurveyComponent,
       cssClass: 'popover-example-class',
-      translucent: true
+      translucent: true,
+      componentProps: { surveyData: response }
     });
 
     popover.onDidDismiss().then((result) => {
       if (result.data) {
         const { mood, feedback } = result.data;
+        response.activityAvailable.answer = mood;
+        response.activityAvailable.descriptionFeeling = feedback;
+        
+        this.homeService.completeSurveyNikoNiko(response);
+
         console.log('Estado de ánimo:', mood);
         console.log('Comentario:', feedback);
       }
@@ -57,17 +66,33 @@ export class HomePage implements OnInit {
     return await popover.present();
   }
 
-  private getNikoNikoSurvey(){
-    this.homeService.getSurveyNikoNikoAvailable().then((response: NikoNikoSurvey) => {
-      if(response){
-        console.log("Result :", response);
-        if( response.activityAvailable.answer == undefined || response.activityAvailable.answer == null  ){
-          console.log("Lista para responder");
-        }
-      }else{
-        console.log("No llego nada!");
+  // private getNikoNikoSurvey(){
+  //   this.homeService.getSurveyNikoNikoAvailable().then((response: NikoNikoSurvey) => {
+  //     if(response){
+  //       console.log("Result :", response);
+  //       if( response.activityAvailable.answer == undefined || response.activityAvailable.answer == null  ){
+  //         console.log("Lista para responder");
+  //       }
+  //     }else{
+  //       console.log("No llego nada!");
+  //     }
+  //   });
+  // }
+
+  private async getNikoNikoSurvey(): Promise<NikoNikoSurvey | null> {
+    try {
+      const response: NikoNikoSurvey = await this.homeService.getSurveyNikoNikoAvailable();
+      if (response && (response.activityAvailable.answer == undefined || response.activityAvailable.answer == null)) {
+        console.log("Lista para responder");
+        return response;
+      } else {
+        console.log("No hay encuesta disponible o ya ha sido respondida.");
+        return null;
       }
-    });
+    } catch (error) {
+      console.error("Error al obtener la encuesta:", error);
+      return null;
+    }
   }
 
   private setLastSurvey(){

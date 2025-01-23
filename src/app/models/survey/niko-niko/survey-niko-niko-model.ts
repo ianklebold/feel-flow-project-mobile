@@ -7,4 +7,5 @@ export interface NikoNikoSurvey {
 export interface ActivityAvailable {
     question: string
     answer: string
+    descriptionFeeling:string
 }

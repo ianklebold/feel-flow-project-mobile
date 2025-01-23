@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { UserData } from 'src/app/models/user/user-data';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 import { NikoNikoSurvey } from 'src/app/models/survey/niko-niko/survey-niko-niko-model';
+import { SurveysService } from '../surveys/surveys.service';
 
 
 const API_VERSION = environment.v1;
@@ -13,7 +14,11 @@ const API_VERSION = environment.v1;
 })
 export class HomeService {
 
-  constructor( private apiService: ApiService) {}
+  constructor( private apiService: ApiService, private surveyService: SurveysService) {}
+
+  public completeSurveyNikoNiko(nikoNikoSurvey: NikoNikoSurvey){
+    this.surveyService.completeSurveyNikoNiko(nikoNikoSurvey);
+  }
 
   public getSurveyNikoNikoAvailable():Promise<NikoNikoSurvey>{
 

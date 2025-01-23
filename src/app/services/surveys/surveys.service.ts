@@ -5,6 +5,7 @@ import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twe
 import { BehaviorSubject } from 'rxjs';
 import { SurveyCompleteTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-complete-model';
 import { ResponseCompleteSurvey } from 'src/app/models/survey/twelve-steps/response-complete-survey.model';
+import { NikoNikoSurvey } from 'src/app/models/survey/niko-niko/survey-niko-niko-model';
 
 
 const API_VERSION = environment.v1;
@@ -70,6 +71,13 @@ export class SurveysService {
     });
 
   }
+
+  public completeSurveyNikoNiko(nikoNikoSurvey: NikoNikoSurvey): Promise<ResponseCompleteSurvey>{
+    return this.apiService.post(`surveys/niko_niko_module`,nikoNikoSurvey, API_VERSION).then((response:ResponseCompleteSurvey) => {
+      return response;
+    });
+  }
+  
 
   public updateTwelveStepsDataBehavior(data: SurveyTwelveSteps){
     this.surveyActiveDataBehavior.next(data);

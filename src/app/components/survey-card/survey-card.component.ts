@@ -29,7 +29,7 @@ export class SurveyCardComponent  implements OnInit {
   }
 
   private setSurveyData(){
-
+    console.log(this.survey?.surveyState);
     if(this.survey?.module.moduleState === 'FINISHED'){
       this.stateSurvey = 'Encuesta cerrada';
       this.iconSurveyName = 'checkmark-done-circle';
