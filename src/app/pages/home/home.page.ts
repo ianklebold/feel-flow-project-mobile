@@ -3,6 +3,8 @@ import { HomeService } from '../../services/home/home.service';
 import { SurveyTwelveSteps } from '../../models/survey/twelve-steps/survey-twelve-steps-model';
 import { Router } from '@angular/router';
 import { NikoNikoSurvey } from 'src/app/models/survey/niko-niko/survey-niko-niko-model';
+import { PopoverController } from '@ionic/angular';
+import { NikoNikoSurveyComponent } from 'src/app/components/niko-niko-survey/niko-niko-survey.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,11 @@ export class HomePage implements OnInit {
   surveys: Array<SurveyTwelveSteps> | undefined;
   surveyAvailable: boolean = false;
 
-  constructor(private homeService: HomeService, private router: Router) {}
+  constructor(
+    private homeService: HomeService, 
+    private router: Router,
+    public popoverController: PopoverController
+  ) {}
 
   ngOnInit() {
     this.setLastSurvey(); 
@@ -26,10 +32,21 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     this.setLastSurvey(); 
     this.getNikoNikoSurvey();
+    this.presentPopover();
   }
   
   public getMessageNotSurveysExists() : string {
     return 'No tiene encuestas activas.';
+  }
+
+  async presentPopover() {
+    const popover = await this.popoverController.create({
+      component: NikoNikoSurveyComponent,
+      cssClass: 'popover-example-class',
+      translucent: true
+    });
+
+    return await popover.present();
   }
 
   private getNikoNikoSurvey(){

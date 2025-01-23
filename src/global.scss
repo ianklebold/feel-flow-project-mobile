@@ -41,3 +41,16 @@
 * {
     font-family: Roboto;
 }
+
+ion-popover {
+    --width: 400px;
+    --height: 590px
+}
+
+ion-popover.popover-example-class{
+    --offset-y: -100px !important;
+}
+
+.popover-content{
+    background: var(--ion-color-primary-tint);
+}

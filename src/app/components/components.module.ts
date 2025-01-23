@@ -12,6 +12,7 @@ import { ExitButtonComponent } from './exit-button/exit-button.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
 import { OptionContainerComponent } from './option-container/option-container.component';
 import { FormsModule } from '@angular/forms';
+import { NikoNikoSurveyComponent } from './niko-niko-survey/niko-niko-survey.component';
 
 
 
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ErrorMessageComponent,
     ExitButtonComponent,
     QuestionContainerComponent,
-    OptionContainerComponent
+    OptionContainerComponent,
+    NikoNikoSurveyComponent
   ],
   imports: [
     IonicModule,
@@ -43,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     ErrorMessageComponent,
     ExitButtonComponent,
     QuestionContainerComponent,
-    OptionContainerComponent
+    OptionContainerComponent,
+    NikoNikoSurveyComponent
   ]
 })
 export class ComponentsModule { }

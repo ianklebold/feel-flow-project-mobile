@@ -1,0 +1,100 @@
+// ion-card{
+//     width: 20rem;
+// }
+
+:host {
+    // Estilos generales para el componente
+    display: block;
+    width: 400px; // Ancho específico del popover
+    border-radius: 8px; // Bordes redondeados
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Sombra
+}
+
+ion-card-header{
+    border-bottom: solid;
+}
+
+.card-content{
+    margin-top: 20px;
+    width: 100% !important;
+}
+
+.icons-content{
+    border: solid;
+    width: 100%;
+}
+
+ion-textarea {
+    background-color: lightgray;
+    width: 100%; 
+    height: 50px;
+    margin-top: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 8px;
+}
+
+ion-card-title{
+    font-size: 0.8rem !important;
+}
+
+ion-card-subtitle{
+    font-size: 0.6rem !important;
+}
+
+// ion-radio-group {
+//     display: flex; // Hacer que el grupo sea un contenedor flexible
+//     flex-direction: row; // Alinear los elementos en fila
+//     justify-content: space-between; // Espacio entre los elementos
+//     width: 100%; // Asegúrate de que ocupe el ancho completo
+// }
+
+
+.icon-mood-button {
+    display: flex;
+    flex-direction: column; // Coloca la imagen arriba y el label abajo
+    align-items: center; // Centra el contenido
+    padding: 10px; // Espaciado interno
+
+    ion-label {
+        margin-top: 5px; // Espacio entre la imagen y el texto
+        text-align: center; // Centra el texto
+    }
+
+    ion-radio {
+        display: none; // Oculta el radio original
+    }
+
+    &:active {
+        background-color: var(--ion-color-primary-tint); // Color de fondo al presionar
+    }
+
+    &:hover {
+        background-color: #d0d0d0; // Color de fondo al pasar el mouse
+    }
+}
+
+.icon-mood-button img {
+    margin-bottom: 5px; // Espacio entre el ícono y el texto
+    width: 24px; // Ancho del ícono
+    height: 24px; // Alto del ícono
+}
+
+.shared-button-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 12px;
+    border-top: solid; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+.shared-button-mood {
+    background-color: var(--ion-color-primary);
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 12px; 
+    cursor: pointer;
+    margin-right: 15px;
+}
