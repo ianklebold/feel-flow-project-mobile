@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-niko-niko-survey',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NikoNikoSurveyComponent  implements OnInit {
 
-  constructor() { }
+  selectedMood: string = '';
+  feedback: string = '';
+
+  constructor(public popoverController: PopoverController) { }
 
   ngOnInit() {}
+
+  sendNikoNikoForm() {
+    this.popoverController.dismiss({
+      mood: this.selectedMood,
+      feedback: this.feedback
+    });
+  }
 
 }

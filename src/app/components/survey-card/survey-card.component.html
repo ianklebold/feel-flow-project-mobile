@@ -22,7 +22,7 @@
         <span>{{this.teamLeaderName}}</span>
       </div>
 
-      <button (click)="playSurveys()" *ngIf="this.survey?.surveyState === 'ACTIVE' ">
+      <button (click)="playSurveys()" *ngIf="this.survey?.surveyState === 'ACTIVE' && this.survey?.module?.name === 'TWELVE_STEPS'">
         <div class="play-survey-content">
           <label>Realizar encuesta</label>
           <ion-icon name="play-outline"></ion-icon>
