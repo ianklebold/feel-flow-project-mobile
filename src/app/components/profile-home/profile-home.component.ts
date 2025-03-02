@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { UserData } from 'src/app/models/user/user-data';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HomeService } from 'src/app/services/home/home.service';
+import { WebSocketService } from 'src/app/services/websocket/websocket.service';
 
 @Component({
   selector: 'app-profile-home',
@@ -13,7 +14,7 @@ export class ProfileHomeComponent  implements OnInit{
   tokenDecoded :any;
   userData: UserData | undefined;
 
-  constructor(private authService: AuthService, private homeService: HomeService) {}
+  constructor(private authService: AuthService, private homeService: HomeService, private webSocketService:WebSocketService) {}
 
   ngOnInit() {
     this.initialize();
@@ -31,6 +32,8 @@ export class ProfileHomeComponent  implements OnInit{
   public getUserData(): Promise<UserData> {
     return this.homeService.getUserData(this.tokenDecoded['id']).then((response: UserData) => {
       this.userData = response;
+      console.log(this.userData.enterpriseInfoHomeDTO.uuid);
+      this.webSocketService.connect(this.userData.enterpriseInfoHomeDTO.uuid);
       return response;
     });
   }
