@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { UserData } from 'src/app/models/user/user-data';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HomeService } from 'src/app/services/home/home.service';
@@ -14,7 +15,7 @@ export class ProfileHomeComponent  implements OnInit{
   tokenDecoded :any;
   userData: UserData | undefined;
 
-  constructor(private authService: AuthService, private homeService: HomeService, private webSocketService:WebSocketService) {}
+  constructor(private authService: AuthService, private homeService: HomeService, private webSocketService:WebSocketService, private navController: NavController) {}
 
   ngOnInit() {
     this.initialize();
@@ -40,6 +41,10 @@ export class ProfileHomeComponent  implements OnInit{
   
   public getMessageNotSurveysExists() : string {
     return 'No tiene encuestas registradas.';
+  }
+
+  public goToProfilePage(){
+    this.navController.navigateRoot('profile');
   }
 
 }

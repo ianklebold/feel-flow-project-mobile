@@ -37,7 +37,8 @@ const routes: Routes = [
   {
     path: 'surveys',
     loadChildren: () => import('./pages/surveys/surveys.module').then( m => m.SurveysPageModule)
-  },  {
+  },
+  {
     path: 'complete-survey-twelve-steps',
     loadChildren: () => import('./pages/complete-survey-twelve-steps/complete-survey-twelve-steps.module').then( m => m.CompleteSurveyTwelveStepsPageModule)
   },
@@ -45,8 +46,10 @@ const routes: Routes = [
     path: 'questions-survey-twelve-steps',
     loadChildren: () => import('./pages/questions-survey-twelve-steps/questions-survey-twelve-steps.module').then( m => m.QuestionsSurveyTwelveStepsPageModule)
   },
-
-
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 
 ];
 
