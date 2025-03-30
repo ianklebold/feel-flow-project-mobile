@@ -2,9 +2,9 @@ ion-card{
     border-radius: 25px;
     width: 96%;
     min-height: 100px;
-    background-color: rgba(var(--ion-color-warning-rgb), 0.3);
+    background-color: rgba(242,93,80, 0.3);
     border-style: solid;
-    border-color: var(--ion-color-warning);
+    border-color: #F25D50;
 
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@ ion-card{
     width: 47px;
     height: 47px;
     border-radius: 15px;
-    background: rgba(var(--ion-color-light-rgb), 0.5);
+    background: rgba(var(--ion-color-light-rgb), 0.2);
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -32,4 +32,5 @@ ion-icon {
 span{
     font-family: Roboto;
     text-align: left;
+    color: var(--ion-color-light);
 }

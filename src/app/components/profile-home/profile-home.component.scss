@@ -21,7 +21,7 @@
     height: 55px;
     border-radius: 15px 15px;
     margin-top: 30px;
-    margin-left: 40px;
+    margin-left: 20px;
   }
   
   ion-img {
@@ -31,8 +31,10 @@
   
 .name-profile{
     font-family: Roboto-Bold;
+    color: var(--ion-color-light);
 }
 
 .name-team-proyect{
     font-family: Roboto-Light;
+    color: var(--ion-color-light);
 }

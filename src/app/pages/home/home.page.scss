@@ -48,7 +48,6 @@ app-exit-button {
 }
 
 .recommendations-header-container label{
-  margin-left: 25.3%;;
   font-family: Roboto-Light;
 }
 
@@ -67,6 +66,29 @@ app-exit-button {
   align-items: center;
 }
 
+.view-all-recomendation-button {
+  margin-left: 26%;
+  font-family: Roboto-Bold;
+  background: none;
+  border: none;
+  color: inherit; 
+  cursor: pointer;
+  padding: 0; 
+  font: inherit; 
+
+
+  display: flex;
+  align-items: center;
+}
+
 .view-all-surveys-button label{
   margin-right: 3px;
+}
+
+label{
+  color: var(--ion-color-light);
+}
+
+h2{
+  color: var(--ion-color-light);
 }

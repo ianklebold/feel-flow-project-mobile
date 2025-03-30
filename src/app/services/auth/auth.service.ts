@@ -48,7 +48,7 @@ export class AuthService{
       if (jwtData) {
         const expirationDate = this.getTokenExpirationDate(jwtData.token);
         const currentTime = Math.floor(Date.now() / 1000);
-        if (currentTime >= expirationDate) {
+        if (currentTime <= expirationDate) {
           await this.logoutAndRedirect();
         }
         console.log(expirationDate);

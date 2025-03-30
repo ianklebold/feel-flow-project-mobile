@@ -9,6 +9,7 @@ ion-tab-button{
     margin-top: 20px;
     margin-bottom: 20px;
     height: 90%;
+    background: none;
 }
 
 ion-tab-button.tab-selected {
@@ -27,7 +28,7 @@ ion-tab-bar{
     border-radius: 40px;
     margin-bottom: 30px;
 
-    box-shadow: 6px 20px 58px 13px var(--ion-color-secondary);
+    box-shadow: 6px 10px 58px 13px var(--ion-color-secondary);
 }
 
 .last-tab-button{
