@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(0deg, rgba(223,136,143,1) 0%, rgba(255,227,206,1) 26%, rgba(168,209,224,1) 100%) !important;
+    --background: linear-gradient(0deg, rgba(255,239,216,1)  0%, rgba(191,88,102,1) 26%, rgba(17,58,121,1) 100%) !important;
 }
 
 .login-title{
@@ -67,5 +67,10 @@ ion-icon{
 }
 
 h1{
-    color: var(--ion-color-medium);
+    color: var(--ion-color-dark);
+}
+
+.img-login{
+    height: 340px;
+    margin-top: 20%;
 }
