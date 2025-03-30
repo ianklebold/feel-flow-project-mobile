@@ -19,12 +19,12 @@ export class WebSocketService {
 
   connect(teamUUID:string) {
     // const socket = new SockJS(`${environment.url}ws`); // Cambia <tu-servidor> por la URL de tu backend
-    const socket = new SockJS(`${environment.url}ws`);
+    const socket = new SockJS(`${environment.url}ws`); // http://localhost:8080/ws
     this.stompClient = Stomp.over(socket);
     this.stompClient.connect({}, (frame: string) => {
       console.log('Conectado: ' + frame);
-      this.stompClient.subscribe(`/topic/${teamUUID}`, (notification: { body: string; }) => {
-        this.notificationSubject.next(JSON.parse(notification.body));
+      this.stompClient.subscribe(`/topic/${teamUUID}`, (notification: { body: string; }) => { 
+        this.notificationSubject.next(JSON.parse(notification.body)); // este es el que queda escucnado
       });
     });
   }
