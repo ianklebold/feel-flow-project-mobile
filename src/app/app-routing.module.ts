@@ -17,8 +17,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
       },
       {
-        path: 'calendar',
-        loadChildren: () => import('./pages/calendar/calendar.module').then( m => m.CalendarPageModule)
+        path: 'notification',
+        loadChildren: () => import('./pages/notification/notification.module').then( m => m.NotificationPageModule)
       },
       {
         path: 'teams',

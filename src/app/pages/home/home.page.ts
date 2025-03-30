@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
   }
   
   public getMessageNotSurveysExists() : string {
-    return 'No tiene encuestas activas.';
+    return 'No tiene encuestas de 12 pasos de la felicidad activas';
   }
 
   async presentPopover(response: NikoNikoSurvey) {

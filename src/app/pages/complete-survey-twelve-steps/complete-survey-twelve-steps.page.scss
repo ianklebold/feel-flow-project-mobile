@@ -39,11 +39,11 @@ ion-content::after {
 }
 
 .introduction-container h1{
-    font-family: Roboto-Bold;
+    font-family: Quicksand-Bold;
 }
 
 .introduction-container p{
-    font-family: Roboto;
+    font-family: Quicksand;
 }
 
 @keyframes gradientAnimation {
@@ -69,7 +69,7 @@ ion-content::after {
     background-size: 400% 400%; 
     animation: gradientAnimation 5s ease infinite;
     color: black;
-    font-family: Roboto-Bold;
+    font-family: Quicksand-Bold;
     box-shadow: 0 0 35px rgba(255, 105, 180, 1), 0 0 35px rgba(255, 200, 200, 1), 0 0 35px rgba(100, 200, 255, 1);
     transition: box-shadow 0.3s ease;
 }
@@ -97,7 +97,7 @@ span.ng-enter-active, ion-icon.ng-enter-active {
 
 .fade-text{
     font-size: 20px;
-    font-family: Roboto-Bold;
+    font-family: Quicksand-Bold;
 }
 
 ion-icon {
