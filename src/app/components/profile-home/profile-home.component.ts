@@ -14,6 +14,7 @@ export class ProfileHomeComponent  implements OnInit{
 
   tokenDecoded :any;
   userData: UserData | undefined;
+  userImage: string | undefined;
 
   constructor(private authService: AuthService, private homeService: HomeService, private webSocketService:WebSocketService, private navController: NavController) {}
 
@@ -25,6 +26,7 @@ export class ProfileHomeComponent  implements OnInit{
     this.tokenDecoded = await this.authService.getDecodeToken(); // Espera el valor decodificado
     if (this.tokenDecoded) {
       this.getUserData();
+      this.getUserImage();
     } else {
       console.error('Token no encontrado o no válido');
     }
@@ -36,6 +38,14 @@ export class ProfileHomeComponent  implements OnInit{
       console.log(this.userData.enterpriseInfoHomeDTO.uuid);
       this.webSocketService.connect(this.userData.enterpriseInfoHomeDTO.uuid);
       return response;
+    });
+  }
+
+  public getUserImage(): void {
+    this.homeService.getUserImage().then((imageUrl: string) => {
+      this.userImage = imageUrl;
+    }).catch(error => {
+      console.error('Error al cargar la imagen', error);
     });
   }
   

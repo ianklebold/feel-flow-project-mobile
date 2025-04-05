@@ -1,7 +1,7 @@
 <div class="profile-container">
   <button class="profile-photo" (click)="goToProfilePage()">
     <div class="avatar-custom">
-      <img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar" />
+      <img [src]="userImage || '../../../assets/profile-photo/bruce-mars.png'" alt="Avatar"/>
     </div>
   </button>
   <div class="profile-info">

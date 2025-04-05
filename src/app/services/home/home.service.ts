@@ -5,6 +5,7 @@ import { UserData } from 'src/app/models/user/user-data';
 import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twelve-steps-model';
 import { NikoNikoSurvey } from 'src/app/models/survey/niko-niko/survey-niko-niko-model';
 import { SurveysService } from '../surveys/surveys.service';
+import { ImageDto } from 'src/app/models/images/image-dto';
 
 
 const API_VERSION = environment.v1;
@@ -56,4 +57,10 @@ export class HomeService {
     
   }
 
+  public getUserImage(): Promise<string> {
+    return this.apiService.get(`images/user/current_user`,API_VERSION).then((response:ImageDto) => {
+      // Si fileData ya viene como string base64, solo hay que armar la data URL
+      return `data:${response.fileType};base64,${response.fileData}`;
+    });
+  }
 }
