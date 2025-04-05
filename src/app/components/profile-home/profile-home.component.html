@@ -1,12 +1,11 @@
 <div class="profile-container">
   <button class="profile-photo" (click)="goToProfilePage()">
-    <ion-img src="../../../assets/profile-photo/bruce-mars.png"></ion-img>
+    <div class="avatar-custom">
+      <img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar" />
+    </div>
   </button>
   <div class="profile-info">
     <p class="name-profile">{{this.userData?.name}} {{this.userData?.surname}}</p>
     <p class="name-team-proyect">{{this.userData?.enterpriseInfoHomeDTO?.name}}</p>
-  </div>
-  <div class="enterprise-photo">
-    <ion-img src="../../../assets/profile-photo/enterprise.png"></ion-img>
   </div>
 </div>
