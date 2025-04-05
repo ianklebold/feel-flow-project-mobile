@@ -1,7 +1,8 @@
 <div class="profile-container">
   <button class="profile-photo" (click)="goToProfilePage()">
     <div class="avatar-custom">
-      <img [src]="userImage || '../../../assets/profile-photo/bruce-mars.png'" alt="Avatar"/>
+      <ion-img [src]="userImage" [hidden]="loading" (ionImgDidLoad)="onImgLoad()"></ion-img>
+      <ion-spinner *ngIf="loading" class="spinner-overlay" color="secondary"></ion-spinner>
     </div>
   </button>
   <div class="profile-info">

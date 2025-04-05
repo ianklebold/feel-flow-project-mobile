@@ -15,6 +15,7 @@ export class ProfileHomeComponent  implements OnInit{
   tokenDecoded :any;
   userData: UserData | undefined;
   userImage: string | undefined;
+  loading = true;
 
   constructor(private authService: AuthService, private homeService: HomeService, private webSocketService:WebSocketService, private navController: NavController) {}
 
@@ -45,8 +46,14 @@ export class ProfileHomeComponent  implements OnInit{
     this.homeService.getUserImage().then((imageUrl: string) => {
       this.userImage = imageUrl;
     }).catch(error => {
-      console.error('Error al cargar la imagen', error);
+      // En caso de error, puedes asignar una imagen por defecto y cambiar loading a false
+      this.userImage = 'assets/profile-photo/default.png';
+      this.loading = false;
     });
+  }
+
+  onImgLoad() {
+    this.loading = false;
   }
   
   public getMessageNotSurveysExists() : string {
