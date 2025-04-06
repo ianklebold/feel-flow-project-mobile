@@ -65,7 +65,6 @@ ion-header {
   transition: opacity 0.3s ease;
 }
 
-/* Cuando se está en modo edición, opacamos la imagen */
 .avatar-custom ion-img.editing {
   opacity: 0.6;
 }

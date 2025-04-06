@@ -17,7 +17,6 @@
                alt="Avatar" 
                [class.editing]="editing"></ion-img>
     </div>
-    <!-- Input oculto para seleccionar imagen -->
     <input type="file" #fileInput hidden (change)="onFileSelected($event)" />
     <div>
       <h2 class="name-style">{{userData?.name}} {{userData?.surname}}</h2>

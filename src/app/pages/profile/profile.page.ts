@@ -24,7 +24,6 @@ export class ProfilePage implements OnInit {
   };
   editing = false;
 
-  // Variables para la nueva imagen
   newProfileImage: File | null = null;
   newProfileImagePreview: string | null = null;
 
@@ -53,36 +52,29 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  // Alterna el modo edición; si se cancela, restaura la data original y descarta cambios en la imagen.
   public toggleEdit(): void {
     this.editing = !this.editing;
     if (!this.editing && this.userData) {
       this.editableData = { ...this.userData };
-      // Descarta cambios en la imagen si se cancela
       this.newProfileImage = null;
       this.newProfileImagePreview = null;
     }
   }
 
-  // Guarda los cambios; la nueva imagen se guardará en otro objeto para ser enviado en otro endpoint.
   public saveChanges(): void {
     if (this.editableData) {
       this.userData = { ...this.editableData };
       this.editing = false;
       console.log('Datos guardados', this.userData);
-      // Aquí podrías guardar newProfileImage en otra variable o enviarla a un endpoint.
-      // Por ahora, descartamos el preview.
       this.newProfileImage = null;
       this.newProfileImagePreview = null;
     }
   }
 
-  // Abre el selector de archivos (sólo en modo edición)
   public openFileChooser(): void {
     this.fileInput.nativeElement.click();
   }
 
-  // Cuando se selecciona una nueva imagen, se genera un preview
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
@@ -93,5 +85,6 @@ export class ProfilePage implements OnInit {
       };
       reader.readAsDataURL(this.newProfileImage);
     }
+    input.value = '';
   }
 }
