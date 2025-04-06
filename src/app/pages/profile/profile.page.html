@@ -16,17 +16,16 @@
       <ion-img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar"></ion-img>
     </div>
     <div>
-      <h2 class="name-style">{{userData?.name}} {{userData?.surname}}</h2>
+      <h2 class="name-style">{{ userData?.name }} {{ userData?.surname }}</h2>
     </div>
     <div>
-      <p>{{userData?.description}}</p>
+      <p>{{ userData?.description }}</p>
     </div>
   </div>
   
   <div class="data-perfil-container">
     <div class="title-section-data">
       <h3>Detalles de usuario</h3>
-      <!-- Botón para activar/desactivar edición -->
       <ion-button fill="clear" (click)="toggleEdit()" class="edit-button">
         <ion-icon color="secondary" name="create-outline"></ion-icon>
       </ion-button>
@@ -34,29 +33,31 @@
     <div class="body-section-data">
       <div class="data-section">
         <p>Nombre de Usuario</p>
-        <!-- Suponemos que el username no se edita -->
-        <p class="data-result-section">{{userData?.username}}</p>
+        <p class="data-result-section">{{ userData?.username }}</p>
+      </div>
+      <div class="data-section">
+        <p>Nombre</p>
+        <p class="data-result-section" *ngIf="!editing">{{ userData?.name }}</p>
+        <ion-input *ngIf="editing" [(ngModel)]="editableData.name" class="data-result-section"></ion-input>
+      </div>
+      <div class="data-section">
+        <p>Apellido</p>
+        <p class="data-result-section" *ngIf="!editing">{{ userData?.surname }}</p>
+        <ion-input *ngIf="editing" [(ngModel)]="editableData.surname" class="data-result-section"></ion-input>
       </div>
       <div class="data-section">
         <p>Pais</p>
-        <!-- Si no se está editando, muestra el dato; si se edita, muestra un input -->
-        <p class="data-result-section" *ngIf="!editing">{{userData?.country}}</p>
+        <p class="data-result-section" *ngIf="!editing">{{ userData?.country }}</p>
         <ion-input *ngIf="editing" [(ngModel)]="editableData.country" class="data-result-section"></ion-input>
       </div>
       <div class="data-section">
         <p>Número telefónico</p>
-        <p class="data-result-section" *ngIf="!editing">{{userData?.phoneNumber}}</p>
+        <p class="data-result-section" *ngIf="!editing">{{ userData?.phoneNumber }}</p>
         <ion-input *ngIf="editing" [(ngModel)]="editableData.phoneNumber" class="data-result-section"></ion-input>
       </div>
-      <div class="data-section">
-        <p>Descripción</p>
-        <p class="data-result-section" *ngIf="!editing">{{userData?.description}}</p>
-        <ion-input *ngIf="editing" [(ngModel)]="editableData.description" class="data-result-section"></ion-input>
-      </div>
-      <!-- Botón para guardar cambios, visible sólo en modo edición -->
-      <div *ngIf="editing" class="save-button-container">
-        <ion-button expand="block" (click)="saveChanges()">Guardar cambios</ion-button>
-      </div>
+    </div>
+    <div *ngIf="editing" class="save-button-container">
+      <ion-button expand="block" (click)="saveChanges()">Guardar cambios</ion-button>
     </div>
   </div>
 </ion-content>

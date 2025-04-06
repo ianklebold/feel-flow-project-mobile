@@ -3,7 +3,6 @@ p, h2, h3 {
   color: var(--ion-color-light);
 }
 
-/* Header */
 .custom-toolbar {
   position: relative;
   display: flex;
@@ -35,7 +34,6 @@ ion-header {
   margin-top: 2%;
 }
 
-/* Contenedor de perfil */
 .container-header-perfil-data {
   display: flex;
   flex-direction: column;
@@ -66,9 +64,15 @@ ion-header {
 
 .name-style {
   font-family: Quicksand-Bold;
+  margin: 0;
 }
 
-/* Datos del perfil */
+.container-header-perfil-data p {
+  margin: 0;
+  margin-top: 5px;
+  font-family: Quicksand-Regular;
+}
+
 .data-perfil-container {
   margin-left: 6%;
   margin-top: 45px;
@@ -78,7 +82,7 @@ ion-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  padding: 0 20px;
 }
 
 .title-section-data h3 {
@@ -86,12 +90,10 @@ ion-header {
 }
 
 .edit-button {
-  /* Ajusta tamaño y posición del botón de editar */
   --padding-start: 0;
   --padding-end: 0;
 }
 
-/* Estructura de cada dato */
 .data-section {
   display: flex;
   flex-direction: row;
@@ -110,14 +112,34 @@ ion-header {
   flex: 1;
   margin: 0;
   text-align: left;
-  margin-left: 20px; /* Espacio extra entre label y resultado */
+  margin-left: 40px;
 }
 
-/* Botón guardar cambios */
 .save-button-container {
   margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
-ion-input{
+ion-input {
   color: var(--ion-color-medium);
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+}
+
+.data-perfil-container {
+  margin-left: 6%;
+  margin-top: 45px;
+}
+
+.body-section-data {
+  text-align: left;
+  padding-left: 0;
+}
+
+.save-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
