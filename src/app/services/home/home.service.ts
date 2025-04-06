@@ -6,6 +6,7 @@ import { SurveyTwelveSteps } from 'src/app/models/survey/twelve-steps/survey-twe
 import { NikoNikoSurvey } from 'src/app/models/survey/niko-niko/survey-niko-niko-model';
 import { SurveysService } from '../surveys/surveys.service';
 import { ImageDto } from 'src/app/models/images/image-dto';
+import { UserProfileData } from 'src/app/models/user/user-profile-data';
 
 
 const API_VERSION = environment.v1;
@@ -49,6 +50,30 @@ export class HomeService {
             uuid: response['enterpriseInfoHomeDTO']['uuid'],
             name: response['enterpriseInfoHomeDTO']['name']
           }
+      } 
+
+      return userData;
+      
+    });
+    
+  }
+
+  public getUserProfileData( idUser: string ): Promise<UserProfileData> {
+
+    return this.apiService.get(`user/${idUser}`,API_VERSION).then((response:any) => {
+
+      const userData = {
+          uuid: idUser,
+          name: response['name'],
+          surname: response['surname'],
+          username: response['username'],
+          enterpriseInfoHomeDTO: {
+            uuid: response['enterpriseInfoHomeDTO']['uuid'],
+            name: response['enterpriseInfoHomeDTO']['name']
+          },
+          country: response['country'],
+          phoneNumber: response['phoneNumber'],
+          description: response['description']
       } 
 
       return userData;

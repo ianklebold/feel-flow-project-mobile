@@ -1,14 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start" class="start-buttons">
+      <app-exit-button></app-exit-button>
+    </ion-buttons>
+    <ion-title class="custom-title">Perfil</ion-title>
+    <ion-buttons slot="end" class="end-buttons">
+      <app-home-button></app-home-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content>
+
+  <div class="container-header-perfil-data">
+    <div class="avatar-custom container-profile-avatar-data">
+      <ion-img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar"></ion-img>
+    </div>
+
+    <div><h2 class="name-style">{{userData?.name}} {{userData?.surname}}</h2></div>
+    <div><p>{{userData?.description}}</p></div>
+  </div>
+  
+  <div class="data-perfil-container">
+    <div class="title-section-data">
+      <h3>Detalles de usuario</h3>
+    </div>
+    <div class="body-section-data">
+
+      <div class="data-section">
+        <p>Nombre de Usuario</p>
+        <p class="data-result-section">{{userData?.username}}</p>
+      </div>
+
+      <div class="data-section">
+        <p>Pais</p>
+        <p class="data-result-section">{{userData?.country}}</p>
+      </div>
+
+      <div class="data-section">
+        <p>Numero telefonico</p>
+        <p class="data-result-section">{{userData?.phoneNumber}}</p>
+      </div>
+
+    </div>
+  </div>
+
+
 </ion-content>
-<app-exit-button></app-exit-button>

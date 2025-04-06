@@ -13,6 +13,7 @@ import { QuestionContainerComponent } from './question-container/question-contai
 import { OptionContainerComponent } from './option-container/option-container.component';
 import { FormsModule } from '@angular/forms';
 import { NikoNikoSurveyComponent } from './niko-niko-survey/niko-niko-survey.component';
+import { HomeButtonComponent } from './home-button/home-button.component';
 
 
 
@@ -28,7 +29,8 @@ import { NikoNikoSurveyComponent } from './niko-niko-survey/niko-niko-survey.com
     ExitButtonComponent,
     QuestionContainerComponent,
     OptionContainerComponent,
-    NikoNikoSurveyComponent
+    NikoNikoSurveyComponent,
+    HomeButtonComponent
   ],
   imports: [
     IonicModule,
@@ -46,7 +48,8 @@ import { NikoNikoSurveyComponent } from './niko-niko-survey/niko-niko-survey.com
     ExitButtonComponent,
     QuestionContainerComponent,
     OptionContainerComponent,
-    NikoNikoSurveyComponent
+    NikoNikoSurveyComponent,
+    HomeButtonComponent
   ]
 })
 export class ComponentsModule { }
