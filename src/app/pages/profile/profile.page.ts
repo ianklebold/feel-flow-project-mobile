@@ -1,7 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { ResponseApi } from 'src/app/models/response/response-api.model';
 import { UserProfileData } from 'src/app/models/user/user-profile-data';
+import { UserUpdateData } from 'src/app/models/user/user-profile-data-update';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HomeService } from 'src/app/services/home/home.service';
+import { ImageService } from 'src/app/services/image/image.service';
+import { ProfileService } from 'src/app/services/profie-page/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +16,17 @@ import { HomeService } from 'src/app/services/home/home.service';
 export class ProfilePage implements OnInit {
 
   tokenDecoded: any;
+  userUpdateData: UserUpdateData = {
+    name: '',
+    surname: '',
+    username: '',
+    country: '',
+    phoneNumber: '',
+    description: ''
+  };
   userData: UserProfileData | undefined;
+  userImage: string | undefined;
+  loading = true;
   editableData: UserProfileData = {
     uuid: '',
     name: '',
@@ -29,7 +44,12 @@ export class ProfilePage implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private authService: AuthService, private homeService: HomeService) { }
+  constructor(
+    private authService: AuthService, 
+    private homeService: HomeService, 
+    private profileService: ProfileService, 
+    private imageService: ImageService,
+    private navController: NavController) { }
 
   ngOnInit() {
     this.initialize();
@@ -39,6 +59,7 @@ export class ProfilePage implements OnInit {
     this.tokenDecoded = await this.authService.getDecodeToken();
     if (this.tokenDecoded) {
       this.getUserData();
+      this.getUserImage();
     } else {
       console.error('Token no encontrado o no válido');
     }
@@ -62,13 +83,55 @@ export class ProfilePage implements OnInit {
   }
 
   public saveChanges(): void {
-    if (this.editableData) {
-      this.userData = { ...this.editableData };
-      this.editing = false;
-      console.log('Datos guardados', this.userData);
-      this.newProfileImage = null;
-      this.newProfileImagePreview = null;
+
+    if(this.newProfileImage != null && this.newProfileImagePreview != null){
+      this.imageService.saveImage(this.newProfileImage).then(
+        (value: ResponseApi) => {
+          console.log("resultado de consulta");
+          if(value.statusCode === '200'){
+            console.log("Todo bien!");
+            this.getUserImage();
+          }
+        }
+      );
     }
+
+    if (this.editableData) {
+      this.userUpdateData = { 
+        name: this.editableData.name,
+        surname: this.editableData.surname,
+        username: this.editableData.username,
+        country: this.editableData.country,
+        phoneNumber: this.editableData.phoneNumber,
+        description: this.editableData.description
+       };
+
+      this.profileService.updateProfileData(this.userUpdateData, this.editableData.uuid).then(
+        (value: boolean) => {
+          if(value){
+            if(this.editableData.username !== this.userData?.username){
+              this.onLogout();
+            }
+
+            this.userData= {...this.editableData};
+            this.editing = false;
+          }
+
+        }
+      )
+    }
+    this.newProfileImage = null;
+    this.newProfileImagePreview = null;
+  }
+
+  public getUserImage(): void {
+    this.homeService.getUserImage().then((imageUrl: string) => {
+      this.userImage = imageUrl;
+    }).catch(error => {
+      // En caso de error, puedes asignar una imagen por defecto y cambiar loading a false
+      this.userImage = 'assets/profile-photo/default.png';
+      this.loading = false;
+    });
   }
 
   public openFileChooser(): void {
@@ -86,5 +149,14 @@ export class ProfilePage implements OnInit {
       reader.readAsDataURL(this.newProfileImage);
     }
     input.value = '';
+  }
+
+  onImgLoad() {
+    this.loading = false;
+  }
+
+  async onLogout() {
+    await this.authService.logout();
+    this.navController.navigateRoot('login');
   }
 }

@@ -13,9 +13,14 @@
 <ion-content>
   <div class="container-header-perfil-data">
     <div class="avatar-custom container-profile-avatar-data" (click)="editing && openFileChooser()">
-      <ion-img [src]="newProfileImagePreview || '../../../assets/profile-photo/bruce-mars.png'" 
-               alt="Avatar" 
-               [class.editing]="editing"></ion-img>
+      <ion-img 
+        [src]="newProfileImagePreview || userImage" 
+        alt="Avatar"
+        [hidden]="loading"
+        [class.editing]="editing"
+        (ionImgDidLoad)="onImgLoad()">
+      </ion-img>
+      <ion-spinner *ngIf="loading" class="spinner-overlay" color="secondary"></ion-spinner>
     </div>
     <input type="file" #fileInput hidden (change)="onFileSelected($event)" />
     <div>
@@ -38,6 +43,9 @@
         <p>Nombre de Usuario</p>
         <p class="data-result-section" *ngIf="!editing">{{ userData?.username }}</p>
         <ion-input *ngIf="editing" [(ngModel)]="editableData.username" class="data-result-section"></ion-input>
+      </div>
+      <div *ngIf="editing && userData && editableData.username !== userData.username" class="username-warning">
+        <p>El cambio de nombre de usuario implica loguearse de nuevo en la app</p>
       </div>
       <div class="data-section">
         <p>Nombre</p>

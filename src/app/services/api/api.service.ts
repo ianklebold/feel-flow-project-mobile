@@ -45,6 +45,34 @@ export class ApiService {
 
   }
 
+  async post_with_request_param(endpoint: string, file: File, api_version: string = ''): Promise<any> {
+    const headers = await this.getAuthHeaders();
+    
+    // Eliminar Content-Type para que el navegador lo establezca correctamente
+    if (headers.has('Content-Type')) {
+      headers.delete('Content-Type');
+    }
+    
+    const formData: FormData = new FormData();
+    formData.append('imageFile', file, file.name);
+    
+    const url = api_version === '' ? `${URL}${endpoint}` : `${URL}${api_version}${endpoint}`;
+    return this.http.post(url, formData, { headers }).toPromise();
+  }
+
+  async put(endpoint: string, data: any, api_version:string = ''): Promise<any> {
+    const headers = await this.getAuthHeaders();
+
+    if(api_version === ''){
+      const resp = this.http.put(`${URL}${endpoint}`, data, { headers }).toPromise();
+      return resp;
+    }else{
+      const resp = this.http.put(`${URL}${api_version}${endpoint}`, data, { headers }).toPromise();
+      return resp;
+    }
+
+  }
+
   autheticate(data: AuthData): Promise<any>{
     return this.authenticate('login',data);
   }
