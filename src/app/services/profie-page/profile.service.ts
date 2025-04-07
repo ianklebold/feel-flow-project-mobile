@@ -23,7 +23,6 @@ export class ProfileService {
 
     return this.apiService.put(`user/${idUser}`, userUpdateData, API_VERSION).then((response: any) => {
 
-      console.log("Respuesta ", response);
       if(response){
         return false;
       }

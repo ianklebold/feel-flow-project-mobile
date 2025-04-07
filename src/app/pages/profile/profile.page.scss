@@ -138,6 +138,10 @@ ion-input {
 .data-perfil-container {
   margin-left: 6%;
   margin-top: 45px;
+
+  -webkit-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+  -moz-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+  box-shadow: -5px 4px 5px 1px rgba(191,88,102,0.77);
 }
 
 .body-section-data {

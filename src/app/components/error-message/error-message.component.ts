@@ -21,4 +21,16 @@ export class ErrorMessageComponent  implements OnInit {
       this.showErrorMessage = false;
     }, 3000);
   }
+
+  getFirstError(errors: { [key: string]: string }[]): string {
+    if (errors && errors.length > 0) {
+      const firstError = errors[0];
+      const keys = Object.keys(firstError);
+      if (keys.length > 0) {
+        return firstError[keys[0]];
+      }
+    }
+    return '';
+  }
+
 }

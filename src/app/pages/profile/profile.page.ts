@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ErrorMessageComponent } from 'src/app/components/error-message/error-message.component';
+import { ErrorConstants } from 'src/app/constants/error.message';
 import { ResponseApi } from 'src/app/models/response/response-api.model';
 import { UserProfileData } from 'src/app/models/user/user-profile-data';
 import { UserUpdateData } from 'src/app/models/user/user-profile-data-update';
@@ -41,6 +44,8 @@ export class ProfilePage implements OnInit {
 
   newProfileImage: File | null = null;
   newProfileImagePreview: string | null = null;
+
+  @ViewChild(ErrorMessageComponent) errorMessageComponent!: ErrorMessageComponent;
 
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
@@ -87,12 +92,17 @@ export class ProfilePage implements OnInit {
     if(this.newProfileImage != null && this.newProfileImagePreview != null){
       this.imageService.saveImage(this.newProfileImage).then(
         (value: ResponseApi) => {
-          console.log("resultado de consulta");
           if(value.statusCode === '200'){
-            console.log("Todo bien!");
             this.getUserImage();
           }
         }
+      ).catch(
+        error => {
+              if (error instanceof HttpErrorResponse) {
+                this.errorMessageComponent.errorMessage = ErrorConstants.errorToSaveImage; 
+                this.errorMessageComponent.showError();
+              }
+            }
       );
     }
 
@@ -117,6 +127,19 @@ export class ProfilePage implements OnInit {
             this.editing = false;
           }
 
+        }
+      ).catch(
+        error => {
+          if (error instanceof HttpErrorResponse) {
+            console.log(error);
+            if(error.error instanceof Array){
+              this.errorMessageComponent.errorMessage = this.errorMessageComponent.getFirstError(error.error); 
+            }else{
+              console.log(error.error['errorMessage']);
+              this.errorMessageComponent.errorMessage = error.error['errorMessage']; 
+            }
+            this.errorMessageComponent.showError();
+          }
         }
       )
     }
