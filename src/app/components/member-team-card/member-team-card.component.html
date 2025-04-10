@@ -4,11 +4,10 @@
     <ion-icon name="person-circle-outline" color="secondary"></ion-icon>
   </button>
   
-  <!-- Contenedor central: imagen + label -->
+  <!-- Contenedor central: imagen + label para el nombre del miembro -->
   <div class="center-container">
-    <div class="avatar-custom">
-      <ion-img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar" 
-               [hidden]="loading" (ionImgDidLoad)="onImgLoad()"></ion-img>
+    <div class="avatar-custom container-profile-avatar-data">
+      <ion-img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar" [hidden]="loading" (ionImgDidLoad)="onImgLoad()"></ion-img>
       <ion-spinner *ngIf="loading" class="spinner-overlay" color="secondary"></ion-spinner>
     </div>
     <label class="member-name">Nombre del miembro</label>

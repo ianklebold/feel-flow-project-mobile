@@ -1,18 +1,20 @@
 ion-card.profile-card {
-    height: auto; 
+    width: 90%;
+    max-width: 350px;      /* Menor ancho */
+    min-height: 250px;     /* Mayor altura */
     border-radius: 25px;
-    margin-top: 20px;
+    margin: 20px auto;     /* Centramos la card y damos margen superior/inferior */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 10px;    /* Menos padding horizontal para acercar los elementos */
 }
 
 
 .button-container {
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;  
     background: var(--ion-color-primary);
     display: flex;
     justify-content: center;
@@ -22,17 +24,12 @@ ion-card.profile-card {
     border: none;
 }
 
-.left-btn {
-    margin-right: 10px;
-}
-  
-.right-btn {
-    margin-left: 10px; 
+.left-btn, .right-btn {
+    margin: 0 5px;
 }
 
 .center-container {
-    flex: 1;
-    text-align: center;
+    flex: 1; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,8 +53,8 @@ ion-icon {
 }
 
 .avatar-custom {
-    width: 80px;
-    height: 80px;
+    width: 120px;        /* Imagen agrandada */
+    height: 120px;
     -webkit-mask-image: url("../../../assets/mask-blob.svg");
     -webkit-mask-size: cover;
     mask-image: url("../../../assets/mask-blob.svg");
@@ -65,15 +62,19 @@ ion-icon {
     overflow: hidden;
     position: relative;
     margin-bottom: 5px;
-  }
+}
   
-  .avatar-custom ion-img {
+.avatar-custom ion-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: opacity 0.3s ease;
-  }
+}
+
+.avatar-custom ion-img.editing {
+    opacity: 0.6;
+}
 
 .spinner-overlay {
     position: absolute;
@@ -81,12 +82,11 @@ ion-icon {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-  }
-  
+}
+
   .member-name {
     font-size: 1em;
     color: var(--ion-color-light);
     margin: 0;
     padding: 0;
   }
-  

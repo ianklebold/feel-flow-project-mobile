@@ -22,3 +22,7 @@ ion-header {
     box-shadow: none;
     margin-top: 2%;
   }
+
+ion-content {
+    --padding-bottom: 100px;
+}
