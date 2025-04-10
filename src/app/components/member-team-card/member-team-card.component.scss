@@ -1,20 +1,20 @@
 ion-card.profile-card {
     width: 90%;
-    max-width: 350px;      /* Menor ancho */
-    min-height: 250px;     /* Mayor altura */
+    max-width: 350px;      
+    min-height: 250px;    
     border-radius: 25px;
-    margin: 20px auto;     /* Centramos la card y damos margen superior/inferior */
+    margin: 20px auto;     
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 10px;    /* Menos padding horizontal para acercar los elementos */
+    padding: 10px 10px;   
 }
 
 
 .button-container {
     width: 50px;
     height: 50px;
-    border-radius: 50%;  
+    border-radius: 50%;
     background: var(--ion-color-primary);
     display: flex;
     justify-content: center;
@@ -22,7 +22,18 @@ ion-card.profile-card {
     cursor: pointer;
     outline: none;
     border: none;
-}
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .button-container:hover {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .button-container:active {
+    transform: scale(0.95);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  }
 
 .left-btn, .right-btn {
     margin: 0 5px;
