@@ -14,6 +14,7 @@ import { OptionContainerComponent } from './option-container/option-container.co
 import { FormsModule } from '@angular/forms';
 import { NikoNikoSurveyComponent } from './niko-niko-survey/niko-niko-survey.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
+import { MemberTeamCardComponent } from './member-team-card/member-team-card.component';
 
 
 
@@ -30,7 +31,8 @@ import { HomeButtonComponent } from './home-button/home-button.component';
     QuestionContainerComponent,
     OptionContainerComponent,
     NikoNikoSurveyComponent,
-    HomeButtonComponent
+    HomeButtonComponent,
+    MemberTeamCardComponent
   ],
   imports: [
     IonicModule,
@@ -49,7 +51,8 @@ import { HomeButtonComponent } from './home-button/home-button.component';
     QuestionContainerComponent,
     OptionContainerComponent,
     NikoNikoSurveyComponent,
-    HomeButtonComponent
+    HomeButtonComponent,
+    MemberTeamCardComponent
   ]
 })
 export class ComponentsModule { }

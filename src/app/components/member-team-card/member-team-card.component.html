@@ -1,0 +1,21 @@
+<ion-card color="primary" class="profile-card">
+  <!-- Botón izquierdo -->
+  <button class="button-container left-btn">
+    <ion-icon name="person-circle-outline" color="secondary"></ion-icon>
+  </button>
+  
+  <!-- Contenedor central: imagen + label -->
+  <div class="center-container">
+    <div class="avatar-custom">
+      <ion-img src="../../../assets/profile-photo/bruce-mars.png" alt="Avatar" 
+               [hidden]="loading" (ionImgDidLoad)="onImgLoad()"></ion-img>
+      <ion-spinner *ngIf="loading" class="spinner-overlay" color="secondary"></ion-spinner>
+    </div>
+    <label class="member-name">Nombre del miembro</label>
+  </div>
+  
+  <!-- Botón derecho -->
+  <button class="button-container right-btn">
+    <ion-icon name="stats-chart-outline" color="secondary"></ion-icon>
+  </button>
+</ion-card>

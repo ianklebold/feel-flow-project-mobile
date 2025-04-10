@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>teams</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="custom-title">Equipo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">teams</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <app-info-card [infoText]="this.getMessageKudosAvailable()"></app-info-card>
+  <app-member-team-card></app-member-team-card>
 </ion-content>

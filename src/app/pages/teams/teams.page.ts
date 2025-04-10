@@ -12,4 +12,8 @@ export class TeamsPage implements OnInit {
   ngOnInit() {
   }
 
+  public getMessageKudosAvailable() : string {
+    return 'Kudos disponible en los detalles de los miembros del equipo';
+  }
+
 }

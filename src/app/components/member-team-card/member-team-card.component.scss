@@ -1,0 +1,92 @@
+ion-card.profile-card {
+    height: auto; 
+    border-radius: 25px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+
+.button-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    background: var(--ion-color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.left-btn {
+    margin-right: 10px;
+}
+  
+.right-btn {
+    margin-left: 10px; 
+}
+
+.center-container {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label{
+    color: var(--ion-color-light);
+}
+
+ion-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.spinner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.avatar-custom {
+    width: 80px;
+    height: 80px;
+    -webkit-mask-image: url("../../../assets/mask-blob.svg");
+    -webkit-mask-size: cover;
+    mask-image: url("../../../assets/mask-blob.svg");
+    mask-size: cover;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  
+  .avatar-custom ion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+.spinner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  
+  .member-name {
+    font-size: 1em;
+    color: var(--ion-color-light);
+    margin: 0;
+    padding: 0;
+  }
+  
