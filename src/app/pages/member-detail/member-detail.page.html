@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start" class="start-buttons">
+      <button  class="button-container blur-effect-button" (click)="onTeams()">
+        <ion-icon color="secondary" name="people"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="custom-title">Detalle de perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-header-perfil-data">
+    <div class="avatar-custom container-profile-avatar-data">
+      <ion-img 
+        [src]="'../../../assets/profile-photo/bruce-mars.png'" 
+        alt="Avatar"
+        [hidden]="loading"
+        (ionImgDidLoad)="onImgLoad()">
+      </ion-img>
+      <ion-spinner *ngIf="loading" class="spinner-overlay" color="secondary"></ion-spinner>
+    </div>
+    <div>
+      <h2 class="name-style">Nombre y Apellido</h2>
+    </div>
+    <div>
+      <p>Descripcion del miembro</p>
+    </div>
+  </div>
+  
+  <div class="data-perfil-container">
+    <div class="title-section-data">
+      <h3>Detalles de usuario</h3>
+    </div>
+    <div class="body-section-data">
+      <div class="data-section">
+        <p>Nombre de Usuario</p>
+        <p class="data-result-section"> Nombre de usuario </p>
+      </div>
+      <div class="data-section">
+        <p>Pais</p>
+        <p class="data-result-section"> Pais de usuario </p>
+      </div>
+      <div class="data-section">
+        <p>Número telefónico</p>
+        <p class="data-result-section"> Numero de usuario </p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="badges-header">
+  <h3>Kudos Ganados</h3>
+</div>
+
+<swiper-container
+  *ngIf="showSwiper"
+  effect="cube"
+  cube-effect='{"shadow":true,"slideShadows":true,"shadowOffset":20,"shadowScale":0.94}'
+  pagination='{"type": "progressbar","progressbarOpposite":true}'
+  >
+  <swiper-slide class="badge-slide">
+    <img src="../../../assets/kudos-icons/kudos_Manos_Amigas.svg" alt="Badge 1" class="badge-image">
+    <strong class="badge-name">Manos amigas</strong>
+    <p class="badge-count">10</p>
+  </swiper-slide>
+  <swiper-slide class="badge-slide">
+    <img src="../../../assets/kudos-icons/Kudos _Resolutor_Estrella.svg" alt="Badge 2" class="badge-image">
+    <strong class="badge-name">Resolutor estrella</strong>
+    <p class="badge-count">5</p>
+  </swiper-slide>
+  <swiper-slide class="badge-slide">
+    <img src="../../../assets/kudos-icons/Kudos _Energia_Positiva.svg" alt="Badge 3" class="badge-image">
+    <strong class="badge-name">Energia positiva</strong>
+    <p class="badge-count">8</p>
+  </swiper-slide>
+  <swiper-slide class="badge-slide">
+    <img src="../../../assets/kudos-icons/Kudos_Maestro_Del_detalle.svg" alt="Badge 4" class="badge-image">
+    <strong class="badge-name">Maestro del detalle</strong>
+    <p class="badge-count">2</p>
+  </swiper-slide>
+</swiper-container>
+
+<div class="kudos-button-container">
+  <ion-button expand="block">Regalar Kudos</ion-button>
+</div>
+
+</ion-content>

@@ -1,0 +1,232 @@
+p, h2, h3 {
+    color: var(--ion-color-light);
+}
+  
+.custom-toolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.start-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.custom-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: inherit;
+    color: var(--ion-color-light);
+}
+
+ion-header {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 2%;
+}
+
+.container-header-perfil-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container-header-perfil-data p {
+    margin: 0;
+    margin-top: 5px;
+    font-family: Quicksand-Regular;
+}
+
+.avatar-custom {
+    width: 200px;
+    height: 200px;
+    -webkit-mask-image: url("../../../assets/mask-blob.svg");
+    -webkit-mask-size: cover;
+    mask-image: url("../../../assets/mask-blob.svg");
+    mask-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+  
+.avatar-custom ion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.container-profile-avatar-data {
+    margin-bottom: 20px;
+}
+
+.spinner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.name-style {
+    font-family: Quicksand-Bold;
+    margin: 0;
+}
+
+.data-perfil-container {
+    margin-left: 6%;
+    margin-top: 45px;
+}
+
+.data-perfil-container {
+    margin-left: 6%;
+    margin-top: 45px;
+  
+    -webkit-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+    -moz-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+    box-shadow: -5px 4px 5px 1px rgba(191,88,102,0.77);
+}
+
+.title-section-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+  
+.title-section-data h3 {
+    margin: 0;
+}
+
+.body-section-data {
+    text-align: left;
+    padding-left: 0;
+}
+
+.data-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.data-section p:first-child {
+    flex: 0 0 150px;
+    margin: 0;
+    font-weight: bold;
+}
+  
+.data-section p.data-result-section{
+    flex: 1;
+    margin: 0;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.button-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 80px;
+    background: var(--ion-color-primary);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    outline: none;
+    border: none;
+}
+
+ion-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.blur-effect-button{
+    -webkit-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+    -moz-box-shadow: 2px -1px 5px 13px rgba(191,88,102,0.77);
+    box-shadow: 0px 1px 5px 1px rgba(191,88,102,0.77);
+}
+
+/* Contenedor general del carrusel (swiper-container) */
+swiper-container {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    --swiper-theme-color: #BF5866 !important;
+  }
+  
+  /* Cada slide (tarjeta de insignia) */
+  .swiper-slide.badge-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #1a253c;  /* Fondo de la tarjeta */
+    border-radius: 12px;        /* Bordes redondeados */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4); /* Sombra tipo card */
+    padding: 10px;
+    margin: 0 5px;
+  }
+  
+  /* Imagen de la insignia, más grande */
+  .badge-image {
+    width: 100%;   /* Mayor tamaño */
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 5px;
+  }
+  
+  /* Nombre de la insignia en negrita, centrado */
+  .badge-name {
+    display: block;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    color: var(--ion-color-light); /* O puedes poner, por ejemplo, #fff */
+  }
+  
+  /* Cantidad, centrada */
+  .badge-count {
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: var(--ion-color-light);
+  }
+
+  .badges-header {
+    text-align: center;
+    margin: 20px 0; /* Ajusta el margen superior/inferior según necesidad */
+    width: 100%;
+  }
+  
+  .badges-header h3 {
+    color: var(--ion-color-light);
+    font-weight: bold;
+    margin: 10px 0px 0px 0px;
+  }
+
+  .kudos-button-container{
+    margin-top: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+    margin-left: 5%;
+  }
+
+  ion-button{
+    --background: linear-gradient(270deg, rgb(255, 105, 180), rgb(255, 200, 200), rgb(100, 200, 255));
+    background-size: 400% 400%;
+    animation: _ngcontent-ng-c469448767_gradientAnimation 5s ease infinite;
+    color: black;
+  }
+
